@@ -34,13 +34,15 @@ export const content = style({
 })
 
 export const primary = style({
-  padding: '72px 0',
+  padding: '60px 0',
   display: 'flex',
   flexDirection: 'column',
   gap: 24,
   '@media': {
+    [`screen and (min-width: ${breakpoint.tablet}px)`]: {
+      gap: 40,
+    },
     [`screen and (min-width: ${breakpoint.pc}px)`]: {
-      padding: '60px 0',
       gap: 60,
     },
   },

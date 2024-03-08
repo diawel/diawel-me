@@ -7,5 +7,6 @@ export const frame = style({
 
 export const overlay = style({
   position: 'relative',
+  transform: 'translateZ(0)',
   zIndex: 1,
 })

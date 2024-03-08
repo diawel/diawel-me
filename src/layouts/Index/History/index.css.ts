@@ -46,7 +46,7 @@ export const abstract = style({
     [`screen and (min-width: ${breakpoint.pc}px)`]: {
       padding: '60px 0',
       width: 'calc(10% + 240px)',
-      height: '100vh',
+      height: '100svh',
       position: 'sticky',
       flexShrink: 0,
       top: 0,
@@ -72,11 +72,14 @@ export const description = style({
 const buttonBase = style({
   display: 'flex',
   position: 'fixed',
-  bottom: 40,
+  bottom: 24,
   left: '50%',
   transform: 'translateX(-50%)',
   zIndex: 1,
   '@media': {
+    [`screen and (min-width: ${breakpoint.tablet}px)`]: {
+      bottom: 40,
+    },
     [`screen and (min-width: ${breakpoint.pc}px)`]: {
       opacity: 1,
       pointerEvents: 'auto',
@@ -131,14 +134,16 @@ export const ageContainerList = style({
 
 export const ageContainer = style({
   position: 'relative',
-  padding: '12px 0',
+  padding: '8px 0',
   paddingLeft: symbolRadius.mobile + 20,
   display: 'flex',
   flexDirection: 'column',
-  gap: 40,
+  gap: 32,
   '@media': {
     [`screen and (min-width: ${breakpoint.pc}px)`]: {
+      padding: '12px 0',
       paddingLeft: symbolRadius.pc + 20,
+      gap: 40,
     },
   },
 })
@@ -189,8 +194,13 @@ export const label = style({
 })
 
 export const lifeEventSubject = style({
-  fontSize: 18,
+  fontSize: 16,
   fontWeight: 'bold',
+  '@media': {
+    [`screen and (min-width: ${breakpoint.pc}px)`]: {
+      fontSize: 18,
+    },
+  },
 })
 
 export const lifeEventText = style({

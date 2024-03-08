@@ -18,6 +18,7 @@ export const container = style({
     [`screen and (min-width: ${breakpoint.pc}px)`]: {
       height: 44,
       borderRadius: 22,
+      fontSize: 16,
       padding: '0 24px',
     },
   },
