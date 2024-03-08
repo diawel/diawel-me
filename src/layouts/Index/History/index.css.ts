@@ -198,13 +198,25 @@ export const lifeEventText = style({
 })
 
 export const imagesContainer = style({
-  width: '100%',
   overflowX: 'auto',
+  width: `max(calc(100% + (100vw - ${width.mobileContent}px) / 2), calc(100% + 24px))`,
+  '@media': {
+    [`screen and (min-width: ${breakpoint.pc}px)`]: {
+      width: `max(calc(100% + (100vw - ${width.content}px) / 2), calc(100% + 60px))`,
+    },
+  },
 })
 
 export const images = style({
-  minHeight: 80,
+  minHeight: 100,
   display: 'flex',
+  paddingRight: `max(calc((100vw - ${width.mobileContent}px) / 2), 24px)`,
+  boxSizing: 'content-box',
+  '@media': {
+    [`screen and (min-width: ${breakpoint.pc}px)`]: {
+      paddingRight: `max(calc((100vw - ${width.content}px) / 2), 60px)`,
+    },
+  },
 })
 
 export const image = style({
@@ -215,6 +227,6 @@ export const futureBorder = style({
   backgroundImage: `linear-gradient(to bottom, ${color.text}, ${color.text} 6px, transparent 6px)`,
   backgroundSize: '1px 12px',
   width: 1,
-  height: 60,
+  height: 40,
   backgroundRepeat: 'repeat-y',
 })

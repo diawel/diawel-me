@@ -1,8 +1,11 @@
+'use client'
+
 import Paragraph from '@/components/Paragraph'
 import * as styles from './index.css'
 import AnchorButton from '@/components/AnchorButton'
 import { color } from '@/utils/constants'
 import { LifeEvent, Timeline } from '@/utils/microcmsResources'
+import { useEffect, useMemo, useRef, useState } from 'react'
 
 export type HistoryProps = {
   introductionSubject: string
@@ -20,24 +23,56 @@ const History: React.FC<HistoryProps> = ({
   introductionText,
   timeline,
 }) => {
-  const modifiedTimeline: AgeContainer[] = []
-  if (timeline[0].fieldId !== 'ageSymbol')
-    modifiedTimeline.push({ lifeEvents: [] })
-  timeline.forEach((event) => {
-    if (event.fieldId === 'ageSymbol') {
-      modifiedTimeline.push({ age: event.age, lifeEvents: [] })
-    } else {
-      modifiedTimeline[modifiedTimeline.length - 1].lifeEvents.push(event)
+  const [showButton, setShowButton] = useState(false)
+  const containerRef = useRef<HTMLDivElement>(null)
+  const animationFrameRef = useRef(0)
+  useEffect(() => {
+    const container = containerRef.current
+    if (!container) return
+
+    const animationFrame = () => {
+      const containerBoundingRect = container.getBoundingClientRect()
+      if (
+        containerBoundingRect.top < 0 &&
+        containerBoundingRect.bottom > window.innerHeight
+      )
+        setShowButton(true)
+      else setShowButton(false)
+
+      animationFrameRef.current = requestAnimationFrame(animationFrame)
+    }
+    animationFrame()
+
+    return () => {
+      cancelAnimationFrame(animationFrameRef.current)
     }
   })
 
+  const modifiedTimeline = useMemo(() => {
+    const modifiedTimeline: AgeContainer[] = []
+    if (timeline[0].fieldId !== 'ageSymbol')
+      modifiedTimeline.push({ lifeEvents: [] })
+    timeline.forEach((event) => {
+      if (event.fieldId === 'ageSymbol') {
+        modifiedTimeline.push({ age: event.age, lifeEvents: [] })
+      } else {
+        modifiedTimeline[modifiedTimeline.length - 1].lifeEvents.push(event)
+      }
+    })
+    return modifiedTimeline
+  }, [timeline])
+
   return (
-    <section className={styles.container}>
+    <section className={styles.container} ref={containerRef}>
       <div className={styles.content}>
         <div className={styles.abstract}>
           <Paragraph text={introductionSubject} className={styles.subject} />
           <Paragraph text={introductionText} className={styles.description} />
-          <div className={styles.button.visible}>
+          <div
+            className={
+              showButton ? styles.button.visible : styles.button.hidden
+            }
+          >
             <AnchorButton text="作品一覧" backgroundColor={color.white} />
           </div>
         </div>
