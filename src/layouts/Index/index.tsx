@@ -1,20 +1,45 @@
 import { Top, client } from '@/utils/microcmsResources'
 import Fv from './Fv'
 import History from './History'
+import StackScrollArea from '@/components/StackScrollArea'
 
 const Index: React.FC = async () => {
   const { introductionSubject, introductionText, timeline } =
     await client.getObject<Top>({ endpoint: 'top' })
   return (
     <>
-      <Fv />
-      <History
-        {...{
-          introductionSubject,
-          introductionText,
-          timeline,
-        }}
-      />
+      <StackScrollArea
+        stackDirection="down"
+        overlay={
+          <StackScrollArea
+            stackDirection="up"
+            overlay={
+              <div style={{ height: '100vh', backgroundColor: 'black' }} />
+            }
+          >
+            <Fv />
+            <History
+              {...{
+                introductionSubject,
+                introductionText,
+                timeline,
+              }}
+            />
+          </StackScrollArea>
+        }
+      >
+        <div
+          style={{
+            height: '100vh',
+            backgroundColor: 'white',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          hello
+        </div>
+      </StackScrollArea>
     </>
   )
 }

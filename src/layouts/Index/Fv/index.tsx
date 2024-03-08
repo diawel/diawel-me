@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import * as styles from './index.css'
 import AnchorButton from '@/components/AnchorButton'
 
