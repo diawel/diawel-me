@@ -41,7 +41,7 @@ export const abstract = style({
   width: '100%',
   '@media': {
     [`screen and (min-width: ${breakpoint.tablet}px)`]: {
-      width: 360,
+      width: width.mobileContent,
     },
     [`screen and (min-width: ${breakpoint.pc}px)`]: {
       padding: '60px 0',
