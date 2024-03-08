@@ -8,4 +8,5 @@ globalStyle('*', {
 
 export const body = style({
   fontFamily: '"hiragino-kaku-gothic-pron", sans-serif',
+  overflowX: 'hidden',
 })

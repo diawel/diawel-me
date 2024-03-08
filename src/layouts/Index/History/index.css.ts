@@ -201,6 +201,9 @@ export const imagesContainer = style({
   overflowX: 'auto',
   width: `max(calc(100% + (100vw - ${width.mobileContent}px) / 2), calc(100% + 24px))`,
   '@media': {
+    [`screen and (min-width: ${breakpoint.tablet}px)`]: {
+      width: `max(calc(100% + (100vw - ${width.content}px) / 2), calc(100% + 40px))`,
+    },
     [`screen and (min-width: ${breakpoint.pc}px)`]: {
       width: `max(calc(100% + (100vw - ${width.content}px) / 2), calc(100% + 60px))`,
     },
@@ -213,6 +216,9 @@ export const images = style({
   paddingRight: `max(calc((100vw - ${width.mobileContent}px) / 2), 24px)`,
   boxSizing: 'content-box',
   '@media': {
+    [`screen and (min-width: ${breakpoint.tablet}px)`]: {
+      paddingRight: `max(calc((100vw - ${width.content}px) / 2), 40px)`,
+    },
     [`screen and (min-width: ${breakpoint.pc}px)`]: {
       paddingRight: `max(calc((100vw - ${width.content}px) / 2), 60px)`,
     },
