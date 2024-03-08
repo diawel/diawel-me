@@ -1,0 +1,109 @@
+import Paragraph from '@/components/Paragraph'
+import * as styles from './index.css'
+import AnchorButton from '@/components/AnchorButton'
+import { color } from '@/utils/constants'
+import { LifeEvent, Timeline } from '@/utils/microcmsResources'
+
+export type HistoryProps = {
+  introductionSubject: string
+  introductionText: string
+  timeline: Timeline
+}
+
+type AgeContainer = {
+  age?: number
+  lifeEvents: LifeEvent[]
+}
+
+const History: React.FC<HistoryProps> = ({
+  introductionSubject,
+  introductionText,
+  timeline,
+}) => {
+  const modifiedTimeline: AgeContainer[] = []
+  if (timeline[0].fieldId !== 'ageSymbol')
+    modifiedTimeline.push({ lifeEvents: [] })
+  timeline.forEach((event) => {
+    if (event.fieldId === 'ageSymbol') {
+      modifiedTimeline.push({ age: event.age, lifeEvents: [] })
+    } else {
+      modifiedTimeline[modifiedTimeline.length - 1].lifeEvents.push(event)
+    }
+  })
+
+  return (
+    <section className={styles.container}>
+      <div className={styles.content}>
+        <div className={styles.abstract}>
+          <Paragraph text={introductionSubject} className={styles.subject} />
+          <Paragraph text={introductionText} className={styles.description} />
+          <div className={styles.button.visible}>
+            <AnchorButton text="作品一覧" backgroundColor={color.white} />
+          </div>
+        </div>
+        <div className={styles.timeline}>
+          <div className={styles.ageContainerList}>
+            {modifiedTimeline.map((ageContainer) => (
+              <div key={ageContainer.age} className={styles.ageContainer}>
+                <div className={styles.ageSymbol}>
+                  <div>
+                    <span className={styles.age}>{ageContainer.age}</span>
+                    <span className={styles.unit}>歳</span>
+                  </div>
+                </div>
+                {ageContainer.lifeEvents.map((event) => (
+                  <div key={event.label} className={styles.lifeEvent}>
+                    <div>
+                      <div className={styles.label}>{event.label}</div>
+                      <div className={styles.lifeEventSubject}>
+                        {event.subject}
+                      </div>
+                    </div>
+                    {event.text && (
+                      <div className={styles.lifeEventText}>{event.text}</div>
+                    )}
+                    {(() => {
+                      if (event.images.length === 0) return <></>
+                      let imagesRatio = 0
+                      event.images.forEach((image) => {
+                        if (image.width && image.height)
+                          imagesRatio += image.width / image.height
+                      })
+
+                      return (
+                        <div className={styles.imagesContainer}>
+                          <div
+                            className={styles.images}
+                            style={{
+                              aspectRatio: imagesRatio,
+                            }}
+                          >
+                            {event.images
+                              .filter((image) => image.width && image.height)
+                              .map((image, index) => (
+                                <img
+                                  key={image.url}
+                                  src={image.url}
+                                  alt={`イベント「${event.label}」の画像(${
+                                    index + 1
+                                  }枚目)`}
+                                  className={styles.image}
+                                />
+                              ))}
+                          </div>
+                        </div>
+                      )
+                    })()}
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+          <div className={styles.futureBorder} />
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export default History
