@@ -1,3 +1,4 @@
+import { color } from '@/utils/constants'
 import { globalStyle, style } from '@vanilla-extract/css'
 
 globalStyle('*', {
@@ -9,4 +10,5 @@ globalStyle('*', {
 export const body = style({
   fontFamily: '"hiragino-kaku-gothic-pron", sans-serif',
   overflowX: 'hidden',
+  backgroundColor: color.gray,
 })

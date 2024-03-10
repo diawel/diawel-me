@@ -16,6 +16,7 @@ const Index: React.FC = async () => {
             overlay={
               <div style={{ height: '100vh', backgroundColor: 'black' }} />
             }
+            avoidSafariStickyBug
           >
             <Fv />
             <History
