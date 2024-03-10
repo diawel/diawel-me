@@ -6,6 +6,7 @@ import AnchorButton from '@/components/AnchorButton'
 import { color } from '@/utils/constants'
 import { LifeEvent, Timeline } from '@/utils/microcmsResources'
 import { useEffect, useMemo, useRef, useState } from 'react'
+import SectionWithAbstract from '@/components/SectionWithAbstract'
 
 export type HistoryProps = {
   introductionSubject: string
@@ -63,8 +64,8 @@ const History: React.FC<HistoryProps> = ({
   }, [timeline])
 
   return (
-    <section className={styles.container} ref={containerRef}>
-      <div className={styles.content}>
+    <SectionWithAbstract
+      abstract={
         <div className={styles.abstract}>
           <Paragraph text={introductionSubject} className={styles.subject} />
           <Paragraph text={introductionText} className={styles.description} />
@@ -76,68 +77,71 @@ const History: React.FC<HistoryProps> = ({
             <AnchorButton text="作品一覧" backgroundColor={color.white} />
           </div>
         </div>
-        <div className={styles.timeline}>
-          <div className={styles.ageContainerList}>
-            {modifiedTimeline.map((ageContainer) => (
-              <div key={ageContainer.age} className={styles.ageContainer}>
-                <div className={styles.ageSymbol}>
-                  <div>
-                    <span className={styles.age}>{ageContainer.age}</span>
-                    <span className={styles.unit}>歳</span>
-                  </div>
+      }
+      className={styles.container}
+      ref={containerRef}
+    >
+      <div className={styles.timeline}>
+        <div className={styles.ageContainerList}>
+          {modifiedTimeline.map((ageContainer) => (
+            <div key={ageContainer.age} className={styles.ageContainer}>
+              <div className={styles.ageSymbol}>
+                <div>
+                  <span className={styles.age}>{ageContainer.age}</span>
+                  <span className={styles.unit}>歳</span>
                 </div>
-                {ageContainer.lifeEvents.map((event) => (
-                  <div key={event.label} className={styles.lifeEvent}>
-                    <div>
-                      <div className={styles.label}>{event.label}</div>
-                      <div className={styles.lifeEventSubject}>
-                        {event.subject}
-                      </div>
-                    </div>
-                    {event.text && (
-                      <div className={styles.lifeEventText}>{event.text}</div>
-                    )}
-                    {(() => {
-                      if (event.images.length === 0) return <></>
-                      let imagesRatio = 0
-                      event.images.forEach((image) => {
-                        if (image.width && image.height)
-                          imagesRatio += image.width / image.height
-                      })
-
-                      return (
-                        <div className={styles.imagesContainer}>
-                          <div
-                            className={styles.images}
-                            style={{
-                              aspectRatio: imagesRatio,
-                            }}
-                          >
-                            {event.images
-                              .filter((image) => image.width && image.height)
-                              .map((image, index) => (
-                                <img
-                                  key={image.url}
-                                  src={image.url}
-                                  alt={`イベント「${event.label}」の画像(${
-                                    index + 1
-                                  }枚目)`}
-                                  className={styles.image}
-                                />
-                              ))}
-                          </div>
-                        </div>
-                      )
-                    })()}
-                  </div>
-                ))}
               </div>
-            ))}
-          </div>
-          <div className={styles.futureBorder} />
+              {ageContainer.lifeEvents.map((event) => (
+                <div key={event.label} className={styles.lifeEvent}>
+                  <div>
+                    <div className={styles.label}>{event.label}</div>
+                    <div className={styles.lifeEventSubject}>
+                      {event.subject}
+                    </div>
+                  </div>
+                  {event.text && (
+                    <div className={styles.lifeEventText}>{event.text}</div>
+                  )}
+                  {(() => {
+                    if (event.images.length === 0) return <></>
+                    let imagesRatio = 0
+                    event.images.forEach((image) => {
+                      if (image.width && image.height)
+                        imagesRatio += image.width / image.height
+                    })
+
+                    return (
+                      <div className={styles.imagesContainer}>
+                        <div
+                          className={styles.images}
+                          style={{
+                            aspectRatio: imagesRatio,
+                          }}
+                        >
+                          {event.images
+                            .filter((image) => image.width && image.height)
+                            .map((image, index) => (
+                              <img
+                                key={image.url}
+                                src={image.url}
+                                alt={`イベント「${event.label}」の画像(${
+                                  index + 1
+                                }枚目)`}
+                                className={styles.image}
+                              />
+                            ))}
+                        </div>
+                      </div>
+                    )
+                  })()}
+                </div>
+              ))}
+            </div>
+          ))}
         </div>
+        <div className={styles.futureBorder} />
       </div>
-    </section>
+    </SectionWithAbstract>
   )
 }
 
