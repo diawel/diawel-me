@@ -7,6 +7,7 @@ import { color } from '@/utils/constants'
 import { LifeEvent, Timeline } from '@/utils/microcmsResources'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import WithAbstract from '@/components/WithAbstract'
+import Images, { StrictImage } from '@/components/Images'
 
 export type HistoryProps = {
   introductionSubject: string
@@ -101,38 +102,16 @@ const History: React.FC<HistoryProps> = ({
                     {event.text && (
                       <div className={styles.lifeEventText}>{event.text}</div>
                     )}
-                    {(() => {
-                      if (event.images.length === 0) return <></>
-                      let imagesRatio = 0
-                      event.images.forEach((image) => {
-                        if (image.width && image.height)
-                          imagesRatio += image.width / image.height
-                      })
-
-                      return (
-                        <div className={styles.imagesContainer}>
-                          <div
-                            className={styles.images}
-                            style={{
-                              aspectRatio: imagesRatio,
-                            }}
-                          >
-                            {event.images
-                              .filter((image) => image.width && image.height)
-                              .map((image, index) => (
-                                <img
-                                  key={image.url}
-                                  src={image.url}
-                                  alt={`イベント「${event.label}」の画像(${
-                                    index + 1
-                                  }枚目)`}
-                                  className={styles.image}
-                                />
-                              ))}
-                          </div>
-                        </div>
-                      )
-                    })()}
+                    <Images
+                      images={
+                        event.images
+                          .filter((image) => image.width && image.height)
+                          .map((image, index) => ({
+                            ...image,
+                            alt: `「${event.subject}」の画像${index + 1}`,
+                          })) as StrictImage[]
+                      }
+                    />
                   </div>
                 ))}
               </div>
