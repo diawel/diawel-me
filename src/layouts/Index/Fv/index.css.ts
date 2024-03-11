@@ -5,27 +5,27 @@ export const container = style({
   display: 'flex',
   justifyContent: 'center',
   backgroundColor: color.gray,
-  padding: '0 24px',
+  padding: `0 ${width.siderail.mobile}px`,
   overflow: 'hidden',
   '@media': {
     [`screen and (min-width: ${breakpoint.tablet}px)`]: {
-      padding: '0 40px',
+      padding: `0 ${width.siderail.tablet}px`,
     },
     [`screen and (min-width: ${breakpoint.pc}px)`]: {
-      padding: '0 60px',
+      padding: `0 ${width.siderail.pc}px`,
     },
   },
 })
 
 export const content = style({
   width: '100%',
-  maxWidth: width.mobileContent,
+  maxWidth: width.content.mobile,
   display: 'flex',
   justifyContent: 'space-between',
   flexDirection: 'column',
   '@media': {
     [`screen and (min-width: ${breakpoint.tablet}px)`]: {
-      maxWidth: width.content,
+      maxWidth: width.content.pc,
       flexDirection: 'row',
       alignItems: 'center',
       gap: 60,
@@ -113,7 +113,7 @@ export const secondary = style({
     borderTopLeftRadius: 40,
     backgroundImage: 'url(/assets/gradient.png)',
     backgroundSize: 'cover',
-    width: `max(calc(50vw + ${width.mobileContent}px / 2), calc(100% + 24px))`,
+    width: `max(calc(50vw + ${width.content.mobile}px / 2), calc(100% + ${width.siderail.mobile}px))`,
     height: '100%',
   },
   '@media': {
@@ -121,8 +121,13 @@ export const secondary = style({
       paddingTop: 60,
       '::before': {
         borderTopLeftRadius: 50,
-        width: `max(calc(100% + (100vw - ${width.content}px) / 2), calc(100% + 60px))`,
+        width: `calc(100% + ${width.siderail.tablet}px)`,
         height: 'calc(100% - 60px)',
+      },
+    },
+    [`screen and (min-width: ${breakpoint.pc}px)`]: {
+      '::before': {
+        width: `max(calc(100% + (100vw - ${width.content.pc}px) / 2), calc(100% + ${width.siderail.pc}px))`,
       },
     },
   },

@@ -11,6 +11,6 @@ export const breakpoint = {
 }
 
 export const width = {
-  content: 1080,
-  mobileContent: 420,
+  content: { mobile: 420, pc: 1080 },
+  siderail: { mobile: 24, tablet: 40, pc: 60 },
 }

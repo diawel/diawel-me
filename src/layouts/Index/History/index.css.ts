@@ -169,13 +169,13 @@ export const lifeEventText = style({
 
 export const imagesContainer = style({
   overflowX: 'auto',
-  width: `max(calc(100% + (100vw - ${width.mobileContent}px) / 2), calc(100% + 24px))`,
+  width: `max(calc(100% + (100vw - ${width.content.mobile}px) / 2), calc(100% + ${width.siderail.mobile}px))`,
   '@media': {
     [`screen and (min-width: ${breakpoint.tablet}px)`]: {
-      width: `max(calc(100% + (100vw - ${width.content}px) / 2), calc(100% + 40px))`,
+      width: `calc(100% + ${width.siderail.tablet}px)`,
     },
     [`screen and (min-width: ${breakpoint.pc}px)`]: {
-      width: `max(calc(100% + (100vw - ${width.content}px) / 2), calc(100% + 60px))`,
+      width: `max(calc(100% + (100vw - ${width.content.pc}px) / 2), calc(100% + ${width.siderail.pc}px))`,
     },
   },
 })
@@ -183,14 +183,14 @@ export const imagesContainer = style({
 export const images = style({
   minHeight: 100,
   display: 'flex',
-  paddingRight: `max(calc((100vw - ${width.mobileContent}px) / 2), 24px)`,
+  paddingRight: `max(calc((100vw - ${width.content.mobile}px) / 2), ${width.siderail.mobile}px)`,
   boxSizing: 'content-box',
   '@media': {
     [`screen and (min-width: ${breakpoint.tablet}px)`]: {
-      paddingRight: `max(calc((100vw - ${width.content}px) / 2), 40px)`,
+      paddingRight: `${width.siderail.tablet}px`,
     },
     [`screen and (min-width: ${breakpoint.pc}px)`]: {
-      paddingRight: `max(calc((100vw - ${width.content}px) / 2), 60px)`,
+      paddingRight: `max(calc((100vw - ${width.content.pc}px) / 2), ${width.siderail.pc}px)`,
     },
   },
 })

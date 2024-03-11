@@ -4,25 +4,25 @@ import { style } from '@vanilla-extract/css'
 export const container = style({
   display: 'flex',
   justifyContent: 'center',
-  padding: '0 24px',
+  padding: `0 ${width.siderail.mobile}px`,
   '@media': {
     [`screen and (min-width: ${breakpoint.tablet}px)`]: {
-      padding: '0 40px',
+      padding: `0 ${width.siderail.tablet}px`,
     },
     [`screen and (min-width: ${breakpoint.pc}px)`]: {
-      padding: '0 60px',
+      padding: `0 ${width.siderail.pc}px`,
     },
   },
 })
 
 export const content = style({
   width: '100%',
-  maxWidth: width.mobileContent,
+  maxWidth: width.content.mobile,
   display: 'flex',
   flexDirection: 'column',
   '@media': {
     [`screen and (min-width: ${breakpoint.tablet}px)`]: {
-      maxWidth: width.content,
+      maxWidth: width.content.pc,
     },
     [`screen and (min-width: ${breakpoint.pc}px)`]: {
       flexDirection: 'row',
@@ -36,7 +36,7 @@ export const abstract = style({
   width: '100%',
   '@media': {
     [`screen and (min-width: ${breakpoint.tablet}px)`]: {
-      width: width.mobileContent,
+      width: width.content.mobile,
     },
     [`screen and (min-width: ${breakpoint.pc}px)`]: {
       padding: '60px 0',
