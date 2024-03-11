@@ -74,12 +74,16 @@ const symbolRadius = {
 
 export const timeline = style({
   width: '100%',
-  padding: '60px 0',
+  padding: '60px 0 92px',
   paddingLeft: symbolRadius.mobile,
   display: 'flex',
   flexDirection: 'column',
   '@media': {
+    [`screen and (min-width: ${breakpoint.tablet}px)`]: {
+      padding: '60px 0 120px',
+    },
     [`screen and (min-width: ${breakpoint.pc}px)`]: {
+      padding: '60px 0',
       paddingLeft: symbolRadius.pc,
     },
   },

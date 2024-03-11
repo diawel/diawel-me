@@ -6,7 +6,6 @@ export const container = style({
   justifyContent: 'center',
   backgroundColor: color.gray,
   padding: `0 ${width.siderail.mobile}px`,
-  overflow: 'hidden',
   '@media': {
     [`screen and (min-width: ${breakpoint.tablet}px)`]: {
       padding: `0 ${width.siderail.tablet}px`,
@@ -104,6 +103,7 @@ export const anchorContainer = style({
 
 export const secondary = style({
   position: 'relative',
+  minWidth: '30%',
   flexShrink: 0,
   '::before': {
     content: '',
@@ -113,21 +113,24 @@ export const secondary = style({
     borderTopLeftRadius: 40,
     backgroundImage: 'url(/assets/gradient.png)',
     backgroundSize: 'cover',
-    width: `max(calc(50vw + ${width.content.mobile}px / 2), calc(100% + ${width.siderail.mobile}px))`,
+    width: `max(calc(100% + (100vw - ${width.content.mobile}px) / 2), calc(100% + ${width.siderail.mobile}px))`,
     height: '100%',
   },
   '@media': {
     [`screen and (min-width: ${breakpoint.tablet}px)`]: {
-      paddingTop: 60,
+      paddingTop: 40,
       '::before': {
-        borderTopLeftRadius: 50,
+        borderTopLeftRadius: 40,
         width: `calc(100% + ${width.siderail.tablet}px)`,
-        height: 'calc(100% - 60px)',
+        height: 'calc(100% - 40px)',
       },
     },
     [`screen and (min-width: ${breakpoint.pc}px)`]: {
+      paddingTop: 60,
       '::before': {
+        borderTopLeftRadius: 50,
         width: `max(calc(100% + (100vw - ${width.content.pc}px) / 2), calc(100% + ${width.siderail.pc}px))`,
+        height: 'calc(100% - 60px)',
       },
     },
   },
@@ -141,7 +144,7 @@ export const technologiesBlock = style({
   padding: '40px 24px 60px',
   '@media': {
     [`screen and (min-width: ${breakpoint.tablet}px)`]: {
-      padding: '72px 0 80px 40px',
+      padding: '40px 0 50px 40px',
     },
     [`screen and (min-width: ${breakpoint.pc}px)`]: {
       padding: '80px 0 90px 50px',
