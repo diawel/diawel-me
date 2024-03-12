@@ -11,6 +11,13 @@ export const container = style({
     [`screen and (min-width: ${breakpoint.pc}px)`]: {
       width: `max(calc(100% + (100vw - ${width.content.pc}px) / 2), calc(100% + ${width.siderail.pc}px))`,
     },
+    ['screen and (hover: hover)']: {
+      selectors: {
+        '&:not(:hover)::-webkit-scrollbar': {
+          opacity: 0,
+        },
+      },
+    },
   },
 })
 
