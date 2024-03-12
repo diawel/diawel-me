@@ -15,7 +15,7 @@ export const container = style({
   boxShadow: `0 2px 0 ${color.shadow}`,
   width: 'fit-content',
   '@media': {
-    [`screen and (min-width: ${breakpoint.pc}px)`]: {
+    [`(min-width: ${breakpoint.pc}px)`]: {
       height: 44,
       borderRadius: 22,
       fontSize: 16,

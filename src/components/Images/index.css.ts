@@ -5,13 +5,13 @@ export const container = style({
   overflowX: 'auto',
   width: `max(calc(100% + (100vw - ${width.content.mobile}px) / 2), calc(100% + ${width.siderail.mobile}px))`,
   '@media': {
-    [`screen and (min-width: ${breakpoint.tablet}px)`]: {
+    [`(min-width: ${breakpoint.tablet}px)`]: {
       width: `calc(100% + ${width.siderail.tablet}px)`,
     },
-    [`screen and (min-width: ${breakpoint.pc}px)`]: {
+    [`(min-width: ${breakpoint.pc}px)`]: {
       width: `max(calc(100% + (100vw - ${width.content.pc}px) / 2), calc(100% + ${width.siderail.pc}px))`,
     },
-    ['screen and (hover: hover)']: {
+    ['(hover: hover)']: {
       selectors: {
         '&:not(:hover)::-webkit-scrollbar': {
           opacity: 0,
@@ -27,10 +27,10 @@ export const images = style({
   paddingRight: `max(calc((100vw - ${width.content.mobile}px) / 2), ${width.siderail.mobile}px)`,
   boxSizing: 'content-box',
   '@media': {
-    [`screen and (min-width: ${breakpoint.tablet}px)`]: {
+    [`(min-width: ${breakpoint.tablet}px)`]: {
       paddingRight: `${width.siderail.tablet}px`,
     },
-    [`screen and (min-width: ${breakpoint.pc}px)`]: {
+    [`(min-width: ${breakpoint.pc}px)`]: {
       paddingRight: `max(calc((100vw - ${width.content.pc}px) / 2), ${width.siderail.pc}px)`,
     },
   },

@@ -10,7 +10,7 @@ export const abstract = style({
   flexDirection: 'column',
   gap: 20,
   '@media': {
-    [`screen and (min-width: ${breakpoint.pc}px)`]: {
+    [`(min-width: ${breakpoint.pc}px)`]: {
       gap: 40,
     },
   },
@@ -20,7 +20,7 @@ export const subject = style({
   fontSize: 28,
   fontWeight: 'bold',
   '@media': {
-    [`screen and (min-width: ${breakpoint.pc}px)`]: {
+    [`(min-width: ${breakpoint.pc}px)`]: {
       fontSize: 36,
     },
   },
@@ -38,10 +38,10 @@ const buttonBase = style({
   transform: 'translateX(-50%)',
   zIndex: 1,
   '@media': {
-    [`screen and (min-width: ${breakpoint.tablet}px)`]: {
+    [`(min-width: ${breakpoint.tablet}px)`]: {
       bottom: 40,
     },
-    [`screen and (min-width: ${breakpoint.pc}px)`]: {
+    [`(min-width: ${breakpoint.pc}px)`]: {
       opacity: 1,
       pointerEvents: 'auto',
       position: 'static',
@@ -79,10 +79,10 @@ export const timeline = style({
   display: 'flex',
   flexDirection: 'column',
   '@media': {
-    [`screen and (min-width: ${breakpoint.tablet}px)`]: {
+    [`(min-width: ${breakpoint.tablet}px)`]: {
       padding: '60px 0 120px',
     },
-    [`screen and (min-width: ${breakpoint.pc}px)`]: {
+    [`(min-width: ${breakpoint.pc}px)`]: {
       padding: '60px 0',
       paddingLeft: symbolRadius.pc,
     },
@@ -104,7 +104,7 @@ export const ageContainer = style({
   flexDirection: 'column',
   gap: 32,
   '@media': {
-    [`screen and (min-width: ${breakpoint.pc}px)`]: {
+    [`(min-width: ${breakpoint.pc}px)`]: {
       padding: '12px 0',
       paddingLeft: symbolRadius.pc + 20,
       gap: 40,
@@ -126,7 +126,7 @@ export const ageSymbol = style({
   justifyContent: 'center',
   fontWeight: 'bold',
   '@media': {
-    [`screen and (min-width: ${breakpoint.pc}px)`]: {
+    [`(min-width: ${breakpoint.pc}px)`]: {
       left: -symbolRadius.pc,
       width: symbolRadius.pc * 2,
       height: symbolRadius.pc * 2,
@@ -137,7 +137,7 @@ export const ageSymbol = style({
 export const age = style({
   fontSize: 20,
   '@media': {
-    [`screen and (min-width: ${breakpoint.pc}px)`]: {
+    [`(min-width: ${breakpoint.pc}px)`]: {
       fontSize: 24,
     },
   },
@@ -161,7 +161,7 @@ export const lifeEventSubject = style({
   fontSize: 16,
   fontWeight: 'bold',
   '@media': {
-    [`screen and (min-width: ${breakpoint.pc}px)`]: {
+    [`(min-width: ${breakpoint.pc}px)`]: {
       fontSize: 18,
     },
   },
@@ -175,10 +175,10 @@ export const imagesContainer = style({
   overflowX: 'auto',
   width: `max(calc(100% + (100vw - ${width.content.mobile}px) / 2), calc(100% + ${width.siderail.mobile}px))`,
   '@media': {
-    [`screen and (min-width: ${breakpoint.tablet}px)`]: {
+    [`(min-width: ${breakpoint.tablet}px)`]: {
       width: `calc(100% + ${width.siderail.tablet}px)`,
     },
-    [`screen and (min-width: ${breakpoint.pc}px)`]: {
+    [`(min-width: ${breakpoint.pc}px)`]: {
       width: `max(calc(100% + (100vw - ${width.content.pc}px) / 2), calc(100% + ${width.siderail.pc}px))`,
     },
   },
@@ -190,10 +190,10 @@ export const images = style({
   paddingRight: `max(calc((100vw - ${width.content.mobile}px) / 2), ${width.siderail.mobile}px)`,
   boxSizing: 'content-box',
   '@media': {
-    [`screen and (min-width: ${breakpoint.tablet}px)`]: {
+    [`(min-width: ${breakpoint.tablet}px)`]: {
       paddingRight: `${width.siderail.tablet}px`,
     },
-    [`screen and (min-width: ${breakpoint.pc}px)`]: {
+    [`(min-width: ${breakpoint.pc}px)`]: {
       paddingRight: `max(calc((100vw - ${width.content.pc}px) / 2), ${width.siderail.pc}px)`,
     },
   },

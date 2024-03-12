@@ -7,10 +7,10 @@ export const container = style({
   backgroundColor: color.gray,
   padding: `0 ${width.siderail.mobile}px`,
   '@media': {
-    [`screen and (min-width: ${breakpoint.tablet}px)`]: {
+    [`(min-width: ${breakpoint.tablet}px)`]: {
       padding: `0 ${width.siderail.tablet}px`,
     },
-    [`screen and (min-width: ${breakpoint.pc}px)`]: {
+    [`(min-width: ${breakpoint.pc}px)`]: {
       padding: `0 ${width.siderail.pc}px`,
     },
   },
@@ -23,7 +23,7 @@ export const content = style({
   justifyContent: 'space-between',
   flexDirection: 'column',
   '@media': {
-    [`screen and (min-width: ${breakpoint.tablet}px)`]: {
+    [`(min-width: ${breakpoint.tablet}px)`]: {
       maxWidth: width.content.pc,
       flexDirection: 'row',
       alignItems: 'center',
@@ -38,10 +38,10 @@ export const primary = style({
   flexDirection: 'column',
   gap: 24,
   '@media': {
-    [`screen and (min-width: ${breakpoint.tablet}px)`]: {
+    [`(min-width: ${breakpoint.tablet}px)`]: {
       gap: 40,
     },
-    [`screen and (min-width: ${breakpoint.pc}px)`]: {
+    [`(min-width: ${breakpoint.pc}px)`]: {
       gap: 60,
     },
   },
@@ -64,7 +64,7 @@ export const label = style({
   fontSize: 16,
   fontWeight: 'bold',
   '@media': {
-    [`screen and (min-width: ${breakpoint.pc}px)`]: {
+    [`(min-width: ${breakpoint.pc}px)`]: {
       fontSize: 18,
     },
   },
@@ -73,7 +73,7 @@ export const label = style({
 export const name = style({
   height: 36,
   '@media': {
-    [`screen and (min-width: ${breakpoint.pc}px)`]: {
+    [`(min-width: ${breakpoint.pc}px)`]: {
       height: 52,
     },
   },
@@ -83,7 +83,7 @@ export const affiliation = style({
   fontSize: 16,
   fontWeight: 'bold',
   '@media': {
-    [`screen and (min-width: ${breakpoint.pc}px)`]: {
+    [`(min-width: ${breakpoint.pc}px)`]: {
       fontSize: 18,
     },
   },
@@ -117,7 +117,7 @@ export const secondary = style({
     height: '100%',
   },
   '@media': {
-    [`screen and (min-width: ${breakpoint.tablet}px)`]: {
+    [`(min-width: ${breakpoint.tablet}px)`]: {
       paddingTop: 40,
       '::before': {
         borderTopLeftRadius: 40,
@@ -125,7 +125,7 @@ export const secondary = style({
         height: 'calc(100% - 40px)',
       },
     },
-    [`screen and (min-width: ${breakpoint.pc}px)`]: {
+    [`(min-width: ${breakpoint.pc}px)`]: {
       paddingTop: 60,
       '::before': {
         borderTopLeftRadius: 50,
@@ -143,10 +143,10 @@ export const technologiesBlock = style({
   position: 'relative',
   padding: '40px 24px 60px',
   '@media': {
-    [`screen and (min-width: ${breakpoint.tablet}px)`]: {
+    [`(min-width: ${breakpoint.tablet}px)`]: {
       padding: '40px 0 50px 40px',
     },
-    [`screen and (min-width: ${breakpoint.pc}px)`]: {
+    [`(min-width: ${breakpoint.pc}px)`]: {
       padding: '80px 0 90px 50px',
     },
   },
@@ -164,11 +164,11 @@ export const technologies = style({
   fontWeight: 'bold',
   gap: '0 14px',
   '@media': {
-    [`screen and (min-width: ${breakpoint.tablet}px)`]: {
+    [`(min-width: ${breakpoint.tablet}px)`]: {
       flexWrap: 'unset',
       flexDirection: 'column',
     },
-    [`screen and (min-width: ${breakpoint.pc}px)`]: {
+    [`(min-width: ${breakpoint.pc}px)`]: {
       fontSize: 24,
     },
   },
