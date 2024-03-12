@@ -22,7 +22,7 @@ const WorkCard: React.FC<WorkCardProps> = ({ work }) => {
         </div>
       </div>
       <div className={styles.descriptionBlock}>
-        <h4 className={styles.title}>使用技術・ツール</h4>
+        <h4 className={styles.blockSubject}>使用技術・ツール</h4>
         <p className={styles.description}>{work.technology}</p>
       </div>
       <div className={styles.tagList}>

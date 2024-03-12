@@ -80,7 +80,7 @@ export const timeline = style({
   flexDirection: 'column',
   '@media': {
     [`(min-width: ${breakpoint.tablet}px)`]: {
-      padding: '60px 0 120px',
+      paddingBottom: 120,
     },
     [`(min-width: ${breakpoint.pc}px)`]: {
       padding: '60px 0',

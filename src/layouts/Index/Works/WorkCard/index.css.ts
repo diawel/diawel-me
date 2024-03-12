@@ -29,7 +29,7 @@ export const title = style({
 })
 
 export const description = style({
-  fontSize: 14,
+  fontSize: 16,
 })
 
 export const blockSubject = style({
