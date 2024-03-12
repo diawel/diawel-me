@@ -12,7 +12,7 @@ const AnchorButton: React.FC<AnchorButtonProps> = ({
   return (
     <div className={styles.container} style={{ backgroundColor }}>
       <span>{text}</span>
-      <img src="/assets/arrow-short.svg" alt="へ" />
+      <img src="/assets/arrow.svg" alt="へ" />
     </div>
   )
 }

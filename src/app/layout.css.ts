@@ -11,4 +11,5 @@ export const body = style({
   fontFamily: '"hiragino-kaku-gothic-pron", sans-serif',
   overflowX: 'hidden',
   backgroundColor: color.gray,
+  lineHeight: 1.8,
 })

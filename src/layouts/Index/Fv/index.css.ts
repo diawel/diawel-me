@@ -120,7 +120,6 @@ export const secondary = style({
     [`(min-width: ${breakpoint.tablet}px)`]: {
       paddingTop: 40,
       '::before': {
-        borderTopLeftRadius: 40,
         width: `calc(100% + ${width.siderail.tablet}px)`,
         height: 'calc(100% - 40px)',
       },

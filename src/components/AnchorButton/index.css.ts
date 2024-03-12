@@ -13,6 +13,7 @@ export const container = style({
   gap: 8,
   border: `1px solid ${color.text}`,
   boxShadow: `0 2px 0 ${color.shadow}`,
+  marginBottom: 2,
   width: 'fit-content',
   '@media': {
     [`(min-width: ${breakpoint.pc}px)`]: {

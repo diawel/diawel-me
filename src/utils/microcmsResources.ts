@@ -34,3 +34,31 @@ export type Top = MicroCMSDate & {
   portfolioImages: MicroCMSImage[]
   portfolioDescription: string
 }
+
+export type YearMonth = {
+  fieldId: 'yearMonth'
+  year: number
+  month: number
+}
+
+export type BodyText = {
+  fieldId: 'bodyText'
+  html: string
+}
+
+export type BodyImages = {
+  fieldId: 'bodyImages'
+  images: MicroCMSImage[]
+}
+
+export type Work = MicroCMSDate & {
+  id: string
+  thumbnail: MicroCMSImage
+  title: string
+  confidence: number
+  dateRange: [YearMonth, YearMonth?]
+  description: string
+  technology: string
+  tags: string[]
+  body: (BodyText | BodyImages)[]
+}
