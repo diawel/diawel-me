@@ -56,10 +56,11 @@ export const Works: React.FC<WorksProps> = ({ works }) => {
   const sortedWorks = useMemo(() => {
     if (sortBy === 'confidence') return works
 
+    const now = Date.now()
     return [...works].sort((a, b) => {
       return (
-        yearMonthToDate(b.dateRange[1] ?? b.dateRange[0]).getTime() -
-        yearMonthToDate(a.dateRange[1] ?? a.dateRange[0]).getTime()
+        (b.dateRange[1] ? yearMonthToDate(b.dateRange[1]).getTime() : now) -
+        (a.dateRange[1] ? yearMonthToDate(a.dateRange[1]).getTime() : now)
       )
     })
   }, [works, sortBy])
