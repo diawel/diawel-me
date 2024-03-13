@@ -72,7 +72,7 @@ const queryHeaderBase = style({
   '@media': {
     [`(min-width: ${breakpoint.tablet}px)`]: {
       gap: 36,
-      padding: `12px max(calc((100vw - ${width.content.pc}px) / 2), ${width.siderail.pc}px)`,
+      padding: `12px ${width.siderail.tablet}px`,
     },
     [`(min-width: ${breakpoint.pc}px)`]: {
       gap: 48,
