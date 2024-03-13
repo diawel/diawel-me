@@ -50,9 +50,17 @@ export const contactBox = style({
   borderRadius: 48,
   paddingLeft: 32,
   paddingRight: 24,
+  color: color.white,
+  transition: 'background-color 0.3s, color 0.3s',
   '@media': {
     [`(min-width: ${breakpoint.tablet}px)`]: {
       width: 'fit-content',
+    },
+    '(hover: hover)': {
+      ':hover': {
+        backgroundColor: color.white,
+        color: color.text,
+      },
     },
   },
 })
@@ -60,7 +68,6 @@ export const contactBox = style({
 export const contactText = style({
   fontSize: 16,
   fontWeight: 'bold',
-  color: color.white,
   lineHeight: 1.5,
 })
 
@@ -77,5 +84,18 @@ export const contactButton = style({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
+  border: `1px solid ${color.text}`,
   boxShadow: `0 2px 0 ${color.shadow}`,
+  translate: 'transformY(0)',
+  transition: 'transform 0.2s, box-shadow 0.2s',
+  '@media': {
+    '(hover: hover)': {
+      selectors: {
+        [`a:hover &`]: {
+          transform: 'translateY(2px)',
+          boxShadow: `0 0 0 ${color.shadow}`,
+        },
+      },
+    },
+  },
 })
