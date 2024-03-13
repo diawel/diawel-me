@@ -61,6 +61,7 @@ export const contactText = style({
   fontSize: 16,
   fontWeight: 'bold',
   color: color.white,
+  lineHeight: 1.5,
 })
 
 export const contactButtonBox = style({
