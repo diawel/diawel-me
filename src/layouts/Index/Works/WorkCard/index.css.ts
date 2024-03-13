@@ -8,14 +8,31 @@ export const container = style({
   gap: 16,
 })
 
-export const thumbnail = style({
+export const thumbnailContainer = style({
   width: '100%',
   height: 'auto',
   borderRadius: 8,
-  objectFit: 'cover',
   aspectRatio: '16 / 9',
   border: `1px solid ${color.text}`,
   boxShadow: `inset 0 4px 0 ${color.shadow}`,
+  position: 'relative',
+  overflow: 'hidden',
+})
+
+export const thumbnail = style({
+  width: '100%',
+  height: 'calc(100% + 4px)',
+  objectFit: 'cover',
+})
+
+export const thumbnailOverlay = style({
+  boxShadow: `inset 0 4px 0 ${color.shadow}`,
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  width: '100%',
+  height: '100%',
+  borderRadius: 'inherit',
 })
 
 export const descriptionBlock = style({

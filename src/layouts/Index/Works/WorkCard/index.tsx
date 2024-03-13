@@ -10,11 +10,14 @@ export type WorkCardProps = {
 const WorkCard: React.FC<WorkCardProps> = ({ work }) => {
   return (
     <div className={styles.container}>
-      <img
-        src={work.thumbnail.url}
-        alt={`「${work.title}」のサムネイル`}
-        className={styles.thumbnail}
-      />
+      <div className={styles.thumbnailContainer}>
+        <img
+          src={work.thumbnail.url}
+          alt={`「${work.title}」のサムネイル`}
+          className={styles.thumbnail}
+        />
+        <div className={styles.thumbnailOverlay} />
+      </div>
       <div className={styles.descriptionBlock}>
         <h3 className={styles.title}>{work.title}</h3>
         <div className={styles.description}>
