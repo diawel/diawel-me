@@ -65,3 +65,7 @@ export const formatImage = (
 
   return urlObject.toString()
 }
+
+export const yearMonthToDate = (yearMonth: YearMonth) => {
+  return new Date(yearMonth.year, yearMonth.month - 1)
+}

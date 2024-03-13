@@ -65,7 +65,7 @@ const History: React.FC<HistoryProps> = ({
   }, [timeline])
 
   return (
-    <section ref={containerRef} className={styles.container}>
+    <section ref={containerRef}>
       <WithAbstract
         abstract={
           <div className={styles.abstract}>

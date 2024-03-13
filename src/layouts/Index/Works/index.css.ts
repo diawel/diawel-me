@@ -49,10 +49,59 @@ export const queryContainer = style({
   gap: 24,
 })
 
+export const queryHeaderContainer = style({
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  width: '100%',
+  height: '100%',
+  pointerEvents: 'none',
+})
+
+const queryHeaderBase = style({
+  position: 'sticky',
+  top: 0,
+  width: '100%',
+  overflowX: 'auto',
+  display: 'flex',
+  gap: 30,
+  boxShadow: `0px 24px 64px 0px ${color.shadow}`,
+  backgroundColor: color.gray,
+  padding: `12px max(calc((100vw - ${width.content.mobile}px) / 2), ${width.siderail.mobile}px)`,
+  '@media': {
+    [`(min-width: ${breakpoint.tablet}px)`]: {
+      gap: 36,
+      padding: `12px max(calc((100vw - ${width.content.pc}px) / 2), ${width.siderail.pc}px)`,
+    },
+    [`(min-width: ${breakpoint.pc}px)`]: {
+      gap: 48,
+      padding: `12px max(calc((100vw - ${width.content.pc}px) / 2), ${width.siderail.pc}px)`,
+    },
+  },
+})
+
+export const queryHeader = styleVariants({
+  visible: [
+    queryHeaderBase,
+    {
+      opacity: 1,
+      pointerEvents: 'auto',
+    },
+  ],
+  hidden: [
+    queryHeaderBase,
+    {
+      opacity: 0,
+      pointerEvents: 'none',
+    },
+  ],
+})
+
 export const query = style({
   display: 'flex',
   flexDirection: 'column',
-  gap: 12,
+  gap: 8,
+  flexShrink: 0,
 })
 
 export const queryLabel = style({
@@ -72,13 +121,7 @@ export const queryButtonList = styleVariants({
       alignItems: 'flex-start',
     },
   ],
-  fixed: [
-    queryButtonListBase,
-    {
-      borderRight: `1px solid ${color.text}`,
-      paddingRight: 12,
-    },
-  ],
+  fixed: [queryButtonListBase],
   wrapped: [
     queryButtonListBase,
     {
@@ -109,6 +152,12 @@ export const queryButtonList = styleVariants({
       minWidth: 0,
     },
   ],
+})
+
+export const queryButtonSeparator = style({
+  width: 1,
+  height: 32,
+  backgroundColor: color.text,
 })
 
 export const workCardList = style({

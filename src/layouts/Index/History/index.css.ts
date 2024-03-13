@@ -1,8 +1,6 @@
 import { breakpoint, color, width } from '@/utils/constants'
 import { style, styleVariants } from '@vanilla-extract/css'
 
-export const container = style({})
-
 export const abstract = style({
   display: 'flex',
   flexDirection: 'column',
