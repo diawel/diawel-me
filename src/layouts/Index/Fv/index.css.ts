@@ -1,5 +1,19 @@
+import { blurIn } from '@/utils/commonKeyframes.css'
 import { breakpoint, color, width } from '@/utils/constants'
-import { style } from '@vanilla-extract/css'
+import { keyframes, style } from '@vanilla-extract/css'
+
+const blurSlideIn = keyframes({
+  from: {
+    filter: 'blur(10px)',
+    transform: 'translateX(4px)',
+    opacity: 0,
+  },
+  to: {
+    filter: 'blur(0)',
+    transform: 'translateX(0)',
+    opacity: 1,
+  },
+})
 
 export const container = style({
   display: 'flex',
@@ -63,6 +77,7 @@ export const title = style({
 export const label = style({
   fontSize: 16,
   fontWeight: 'bold',
+  animation: `${blurIn} 1.2s 0.3s ease-out backwards`,
   '@media': {
     [`(min-width: ${breakpoint.pc}px)`]: {
       fontSize: 18,
@@ -72,6 +87,7 @@ export const label = style({
 
 export const name = style({
   height: 36,
+  animation: `${blurIn} 1.5s ease-out backwards`,
   '@media': {
     [`(min-width: ${breakpoint.pc}px)`]: {
       height: 52,
@@ -82,6 +98,7 @@ export const name = style({
 export const affiliation = style({
   fontSize: 16,
   fontWeight: 'bold',
+  animation: `${blurIn} 1.1s 0.4s ease-out backwards`,
   '@media': {
     [`(min-width: ${breakpoint.pc}px)`]: {
       fontSize: 18,
@@ -105,6 +122,7 @@ export const secondary = style({
   position: 'relative',
   minWidth: '30%',
   flexShrink: 0,
+  animation: `${blurSlideIn} 1.2s 0.3s ease-out backwards`,
   '::before': {
     content: '',
     display: 'block',
