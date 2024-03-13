@@ -162,6 +162,7 @@ export const technologies = style({
   fontSize: 20,
   fontWeight: 'bold',
   gap: '0 14px',
+  lineHeight: 1.6,
   '@media': {
     [`(min-width: ${breakpoint.tablet}px)`]: {
       flexWrap: 'unset',
