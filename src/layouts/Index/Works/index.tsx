@@ -166,11 +166,12 @@ export const Works: React.FC<WorksProps> = ({ works }) => {
         <div className={styles.workCardList} ref={workCardListRef}>
           {filteredWorks.map((work, index) => (
             <div
-              key={work.id + sortBy + filter.join(',')}
+              key={[work.id, sortBy, ...filter].join(',')}
               style={{
-                animation: `${blurRiseIn} ${
-                  (filteredWorks.length - index) * 0.03 + 0.3
-                }s ${index * 0.03}s ease-out backwards`,
+                animation: `${blurRiseIn} ${Math.min(
+                  (filteredWorks.length - index) * 0.03 + 0.3,
+                  0.6
+                )}s ${index * 0.03}s ease-out backwards`,
               }}
             >
               <WorkCard work={work} />
