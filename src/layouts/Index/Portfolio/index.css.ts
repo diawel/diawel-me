@@ -54,6 +54,7 @@ export const description = style({
 export const sliderContainer = style({
   position: 'relative',
   boxShadow: `0px 24px 64px 0px ${color.shadow}`,
+  backgroundColor: color.gray,
 })
 
 export const slider = style({
@@ -86,10 +87,16 @@ export const sliderOverlay = style({
   justifyContent: 'flex-end',
   alignItems: 'flex-end',
   gap: 12,
-  padding: 20,
+  padding: 12,
   backgroundImage: `linear-gradient(0deg, rgba(0,0,0, 0.3) 0%, rgba(0,0,0,0) 100%)`,
   display: 'none',
   '@media': {
+    [`(min-width: ${breakpoint.tablet}px)`]: {
+      padding: 16,
+    },
+    [`(min-width: ${breakpoint.pc}px)`]: {
+      padding: 20,
+    },
     '(hover: hover)': {
       display: 'flex',
       opacity: 0,
@@ -110,7 +117,6 @@ const buttonBase = style({
   alignItems: 'center',
   border: `1px solid ${color.text}`,
   boxShadow: `0 2px 0 ${color.shadow}`,
-  marginBottom: 2,
   backgroundColor: color.white,
 })
 

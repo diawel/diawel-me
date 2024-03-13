@@ -4,6 +4,7 @@ import { MicroCMSImage } from 'microcms-js-sdk'
 import * as styles from './index.css'
 import { formatImage } from '@/utils/microcmsResources'
 import Button from '@/components/Button'
+import { useEffect, useRef } from 'react'
 
 export type PortfolioProps = {
   portfolioImages: MicroCMSImage[]
@@ -14,11 +15,27 @@ export const Portfolio: React.FC<PortfolioProps> = ({
   portfolioImages,
   portfolioDescription,
 }) => {
+  const sliderRef = useRef<HTMLDivElement>(null)
+
+  const slideBackward = () => {
+    sliderRef.current?.scrollBy({
+      left: -sliderRef.current.clientWidth,
+      behavior: 'smooth',
+    })
+  }
+
+  const slideForward = () => {
+    sliderRef.current?.scrollBy({
+      left: sliderRef.current.clientWidth,
+      behavior: 'smooth',
+    })
+  }
+
   return (
     <section className={styles.container}>
       <div className={styles.content}>
         <div className={styles.sliderContainer}>
-          <div className={styles.slider}>
+          <div className={styles.slider} ref={sliderRef}>
             {portfolioImages.map((image, index) => (
               <img
                 key={image.url}
@@ -29,7 +46,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({
             ))}
           </div>
           <div className={styles.sliderOverlay}>
-            <Button onClick={() => {}}>
+            <Button onClick={slideBackward}>
               <div className={styles.button.backward}>
                 <img
                   src="/assets/arrow.svg"
@@ -38,7 +55,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({
                 />
               </div>
             </Button>
-            <Button onClick={() => {}}>
+            <Button onClick={slideForward}>
               <div className={styles.button.forward}>
                 <img
                   src="/assets/arrow.svg"
