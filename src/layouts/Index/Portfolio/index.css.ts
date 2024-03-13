@@ -53,6 +53,7 @@ export const description = style({
 
 export const sliderContainer = style({
   position: 'relative',
+  boxShadow: `0px 24px 64px 0px ${color.shadow}`,
 })
 
 export const slider = style({

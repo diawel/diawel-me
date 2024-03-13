@@ -18,30 +18,32 @@ const Index: React.FC = async () => {
   } = await client.getObject<Top>({ endpoint: 'top' })
   const { contents } = await client.getList<Work>({ endpoint: 'works' })
   return (
-    <StackScrollArea
-      stackDirection="down"
-      overlay={
-        <StackScrollArea
-          stackDirection="up"
-          overlay={<Works works={contents} />}
-          avoidSafariStickyBug
-        >
-          <div className={styles.upperContainer}>
-            <Fv />
-            <History
-              {...{
-                introductionSubject,
-                introductionText,
-                timeline,
-              }}
-            />
-          </div>
-        </StackScrollArea>
-      }
-    >
-      <Portfolio {...{ portfolioImages, portfolioDescription }} />
+    <>
+      <StackScrollArea
+        stackDirection="down"
+        overlay={
+          <StackScrollArea
+            stackDirection="up"
+            overlay={<Works works={contents} />}
+            avoidSafariStickyBug
+          >
+            <div className={styles.upperContainer}>
+              <Fv />
+              <History
+                {...{
+                  introductionSubject,
+                  introductionText,
+                  timeline,
+                }}
+              />
+            </div>
+          </StackScrollArea>
+        }
+      >
+        <Portfolio {...{ portfolioImages, portfolioDescription }} />
+      </StackScrollArea>
       <Footer />
-    </StackScrollArea>
+    </>
   )
 }
 
