@@ -27,9 +27,9 @@ const Fv: React.FC = () => {
             </div>
           </div>
           <div className={styles.anchorContainer}>
-            <AnchorButton text="経歴" />
-            <AnchorButton text="作品一覧" />
-            <AnchorButton text="ポートフォリオ" />
+            <AnchorButton to="history" text="経歴" />
+            <AnchorButton to="works" text="作品一覧" />
+            <AnchorButton to="portfolio" text="ポートフォリオ" />
           </div>
         </div>
         <div className={styles.secondary}>

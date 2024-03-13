@@ -134,7 +134,7 @@ export const Works: React.FC<WorksProps> = ({ works }) => {
   ))
 
   return (
-    <div className={styles.container}>
+    <section className={styles.container}>
       <div className={styles.content}>
         <h2 className={styles.subject}>Products / Projects</h2>
         <div className={styles.queryContainer} ref={queryContainerRef}>
@@ -195,6 +195,6 @@ export const Works: React.FC<WorksProps> = ({ works }) => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   )
 }

@@ -76,7 +76,11 @@ const History: React.FC<HistoryProps> = ({
                 showButton ? styles.button.visible : styles.button.hidden
               }
             >
-              <AnchorButton text="作品一覧" backgroundColor={color.white} />
+              <AnchorButton
+                to="works"
+                text="作品一覧"
+                backgroundColor={color.white}
+              />
             </div>
           </div>
         }

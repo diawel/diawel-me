@@ -24,11 +24,18 @@ const Index: React.FC = async () => {
         overlay={
           <StackScrollArea
             stackDirection="up"
-            overlay={<Works works={contents} />}
+            overlay={
+              <>
+                <div id="works" />
+                <Works works={contents} />
+                <div id="portfolio" />
+              </>
+            }
             avoidSafariStickyBug
           >
             <div className={styles.upperContainer}>
               <Fv />
+              <div id="history" />
               <History
                 {...{
                   introductionSubject,
