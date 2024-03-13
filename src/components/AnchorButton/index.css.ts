@@ -24,3 +24,7 @@ export const container = style({
     },
   },
 })
+
+export const arrow = style({
+  transform: 'rotate(180deg)',
+})

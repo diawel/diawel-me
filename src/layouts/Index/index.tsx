@@ -4,10 +4,17 @@ import History from './History'
 import StackScrollArea from '@/components/StackScrollArea'
 import { Works } from './Works'
 import { client } from '@/utils/microcmsClient'
+import Portfolio from './Portfolio'
+import * as styles from './index.css'
 
 const Index: React.FC = async () => {
-  const { introductionSubject, introductionText, timeline } =
-    await client.getObject<Top>({ endpoint: 'top' })
+  const {
+    introductionSubject,
+    introductionText,
+    timeline,
+    portfolioImages,
+    portfolioDescription,
+  } = await client.getObject<Top>({ endpoint: 'top' })
   const { contents } = await client.getList<Work>({ endpoint: 'works' })
   return (
     <StackScrollArea
@@ -18,28 +25,20 @@ const Index: React.FC = async () => {
           overlay={<Works works={contents} />}
           avoidSafariStickyBug
         >
-          <Fv />
-          <History
-            {...{
-              introductionSubject,
-              introductionText,
-              timeline,
-            }}
-          />
+          <div className={styles.upperContainer}>
+            <Fv />
+            <History
+              {...{
+                introductionSubject,
+                introductionText,
+                timeline,
+              }}
+            />
+          </div>
         </StackScrollArea>
       }
     >
-      <div
-        style={{
-          height: '100vh',
-          backgroundColor: 'white',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
-        hello
-      </div>
+      <Portfolio {...{ portfolioImages, portfolioDescription }} />
     </StackScrollArea>
   )
 }
