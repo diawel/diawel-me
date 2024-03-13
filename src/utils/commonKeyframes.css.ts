@@ -2,7 +2,7 @@ import { keyframes } from '@vanilla-extract/css'
 
 export const blurIn = keyframes({
   from: {
-    filter: 'blur(10px)',
+    filter: 'blur(5px)',
     opacity: 0,
   },
   to: {
@@ -13,7 +13,7 @@ export const blurIn = keyframes({
 
 export const blurRiseIn = keyframes({
   from: {
-    filter: 'blur(10px)',
+    filter: 'blur(5px)',
     transform: 'translateY(4px)',
     opacity: 0,
   },

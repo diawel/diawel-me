@@ -68,6 +68,7 @@ const queryHeaderBase = style({
   boxShadow: `0px 24px 64px 0px ${color.shadow}`,
   backgroundColor: color.gray,
   padding: `12px max(calc((100vw - ${width.content.mobile}px) / 2), ${width.siderail.mobile}px)`,
+  transition: 'opacity 0.3s, filter 0.3s',
   '@media': {
     [`(min-width: ${breakpoint.tablet}px)`]: {
       gap: 36,
@@ -85,6 +86,7 @@ export const queryHeader = styleVariants({
     queryHeaderBase,
     {
       opacity: 1,
+      filter: 'blur(0)',
       pointerEvents: 'auto',
     },
   ],
@@ -92,6 +94,7 @@ export const queryHeader = styleVariants({
     queryHeaderBase,
     {
       opacity: 0,
+      filter: 'blur(5px)',
       pointerEvents: 'none',
     },
   ],
@@ -158,6 +161,7 @@ export const queryButtonSeparator = style({
   width: 1,
   height: 32,
   backgroundColor: color.text,
+  flexShrink: 0,
 })
 
 export const workCardList = style({

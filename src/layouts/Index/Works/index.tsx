@@ -5,6 +5,7 @@ import * as styles from './index.css'
 import QueryButton from './QueryButton'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import WorkCard from './WorkCard'
+import { blurRiseIn } from '@/utils/commonKeyframes.css'
 
 type SortBy = 'confidence' | 'recent'
 
@@ -162,8 +163,19 @@ export const Works: React.FC<WorksProps> = ({ works }) => {
           </div>
         </div>
         <div className={styles.workCardList} ref={workCardListRef}>
-          {filteredWorks.map((work) => (
-            <WorkCard key={work.id} work={work} />
+          {filteredWorks.map((work, index) => (
+            <div
+              key={work.id + sortBy + filter.join(',')}
+              style={{
+                animation: `${blurRiseIn} ${
+                  (filteredWorks.length - index) *
+                    (0.3 / filteredWorks.length) +
+                  0.3
+                }s ${index * (0.3 / filteredWorks.length)}s ease-out backwards`,
+              }}
+            >
+              <WorkCard work={work} />
+            </div>
           ))}
         </div>
       </div>

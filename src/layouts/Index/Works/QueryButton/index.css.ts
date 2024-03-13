@@ -18,6 +18,16 @@ const buttonBase = style({
   boxShadow: `0 2px 0 ${color.shadow}`,
   marginBottom: 2,
   width: 'fit-content',
+  transform: 'translateY(0)',
+  transition: 'transform 0.3s, box-shadow 0.3s',
+  '@media': {
+    '(hover: hover)': {
+      ':hover': {
+        transform: 'translateY(2px)',
+        boxShadow: `0 0 0 ${color.shadow}`,
+      },
+    },
+  },
 })
 
 export const button = styleVariants({
