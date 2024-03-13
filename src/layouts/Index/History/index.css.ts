@@ -15,6 +15,7 @@ export const abstract = style({
 export const subject = style({
   fontSize: 28,
   fontWeight: 'bold',
+  lineHeight: 1.6,
   '@media': {
     [`(min-width: ${breakpoint.pc}px)`]: {
       fontSize: 36,
