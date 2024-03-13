@@ -100,9 +100,13 @@ export const sliderOverlay = style({
     '(hover: hover)': {
       display: 'flex',
       opacity: 0,
+      filter: 'blur(5px)',
+      transition: 'opacity 0.3s 1.0s, filter 0.3s 1.0s',
       selectors: {
         [`${sliderContainer}:hover > &`]: {
           opacity: 1,
+          filter: 'blur(0)',
+          transition: 'opacity 0.3s, filter 0.3s',
         },
       },
     },
@@ -118,6 +122,16 @@ const buttonBase = style({
   border: `1px solid ${color.text}`,
   boxShadow: `0 2px 0 ${color.shadow}`,
   backgroundColor: color.white,
+  transform: 'translateY(0)',
+  transition: 'transform 0.3s, box-shadow 0.3s',
+  '@media': {
+    '(hover: hover)': {
+      ':hover': {
+        transform: 'translateY(2px)',
+        boxShadow: `0 0 0 ${color.shadow}`,
+      },
+    },
+  },
 })
 
 export const button = styleVariants({
