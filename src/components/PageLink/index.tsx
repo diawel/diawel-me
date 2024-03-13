@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import * as styles from './index.css'
-import { useContext } from 'react'
 
 export type PageLinkProps = {
   href: string

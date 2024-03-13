@@ -14,7 +14,6 @@ export const thumbnailContainer = style({
   borderRadius: 8,
   aspectRatio: '16 / 9',
   border: `1px solid ${color.text}`,
-  boxShadow: `inset 0 4px 0 ${color.shadow}`,
   position: 'relative',
   overflow: 'hidden',
 })
@@ -23,6 +22,17 @@ export const thumbnail = style({
   width: '100%',
   height: 'calc(100% + 4px)',
   objectFit: 'cover',
+  transform: 'translateY(0)',
+  transition: 'transform 0.3s',
+  '@media': {
+    '(hover: hover)': {
+      selectors: {
+        [`${container}:hover &`]: {
+          transform: 'translateY(-4px)',
+        },
+      },
+    },
+  },
 })
 
 export const thumbnailOverlay = style({
@@ -33,6 +43,16 @@ export const thumbnailOverlay = style({
   width: '100%',
   height: '100%',
   borderRadius: 7,
+  transition: 'box-shadow 0.3s',
+  '@media': {
+    '(hover: hover)': {
+      selectors: {
+        [`${container}:hover &`]: {
+          boxShadow: `inset 0 0 0 ${color.shadow}`,
+        },
+      },
+    },
+  },
 })
 
 export const descriptionBlock = style({
