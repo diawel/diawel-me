@@ -168,10 +168,8 @@ export const Works: React.FC<WorksProps> = ({ works }) => {
               key={work.id + sortBy + filter.join(',')}
               style={{
                 animation: `${blurRiseIn} ${
-                  (filteredWorks.length - index) *
-                    (0.3 / filteredWorks.length) +
-                  0.3
-                }s ${index * (0.3 / filteredWorks.length)}s ease-out backwards`,
+                  (filteredWorks.length - index) * 0.03 + 0.3
+                }s ${index * 0.03}s ease-out backwards`,
               }}
             >
               <WorkCard work={work} />
