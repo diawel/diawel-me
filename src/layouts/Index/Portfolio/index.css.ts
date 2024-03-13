@@ -88,7 +88,7 @@ export const sliderOverlay = style({
   alignItems: 'flex-end',
   gap: 12,
   padding: 12,
-  backgroundImage: `linear-gradient(0deg, rgba(0,0,0, 0.3) 0%, rgba(0,0,0,0) 100%)`,
+  backgroundImage: `linear-gradient(0deg, rgba(0 0 0 / 0.3) 0%, rgba(0 0 0 / 0) 100%)`,
   display: 'none',
   '@media': {
     [`(min-width: ${breakpoint.tablet}px)`]: {

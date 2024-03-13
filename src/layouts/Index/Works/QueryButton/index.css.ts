@@ -19,8 +19,7 @@ const buttonBase = style({
   marginBottom: 2,
   width: 'fit-content',
   transform: 'translateY(0)',
-  transition:
-    'transform 0.3s, box-shadow 0.3s, background-color 0.3s, color 0.3s',
+  transition: 'transform 0.3s, box-shadow 0.3s',
   '@media': {
     '(hover: hover)': {
       ':hover': {

@@ -6,6 +6,7 @@ export const container = style({
   display: 'flex',
   flexDirection: 'column',
   gap: 16,
+  cursor: 'pointer',
 })
 
 export const thumbnailContainer = style({
@@ -16,6 +17,7 @@ export const thumbnailContainer = style({
   border: `1px solid ${color.text}`,
   position: 'relative',
   overflow: 'hidden',
+  backgroundColor: color.white,
 })
 
 export const thumbnail = style({
@@ -49,6 +51,32 @@ export const thumbnailOverlay = style({
       selectors: {
         [`${container}:hover &`]: {
           boxShadow: `inset 0 0 0 ${color.shadow}`,
+        },
+      },
+    },
+  },
+})
+
+export const thumbnailOverlayInner = style({
+  position: 'absolute',
+  bottom: 0,
+  left: 0,
+  width: '100%',
+  height: '30%',
+  padding: 12,
+  display: 'flex',
+  justifyContent: 'flex-end',
+  alignItems: 'flex-end',
+  backgroundImage: `linear-gradient(0deg, rgba(0 0 0 / 0.3) 0%, rgba(0 0 0 / 0) 100%)`,
+  opacity: 0,
+  filter: 'blur(5px)',
+  transition: 'opacity 0.3s, filter 0.3s',
+  '@media': {
+    '(hover: hover)': {
+      selectors: {
+        [`${container}:hover &`]: {
+          opacity: 1,
+          filter: 'blur(0)',
         },
       },
     },

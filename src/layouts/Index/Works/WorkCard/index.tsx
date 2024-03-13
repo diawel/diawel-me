@@ -2,6 +2,7 @@ import { Work, formatImage } from '@/utils/microcmsResources'
 import * as styles from './index.css'
 import Tag from '@/components/Tag'
 import Paragraph from '@/components/Paragraph'
+import { color } from '@/utils/constants'
 
 export type WorkCardProps = {
   work: Work
@@ -16,7 +17,11 @@ const WorkCard: React.FC<WorkCardProps> = ({ work }) => {
           alt={`「${work.title}」のサムネイル`}
           className={styles.thumbnail}
         />
-        <div className={styles.thumbnailOverlay} />
+        <div className={styles.thumbnailOverlay}>
+          <div className={styles.thumbnailOverlayInner}>
+            <Tag text="詳細を読む" backgroundColor={color.white} />
+          </div>
+        </div>
       </div>
       <div className={styles.descriptionBlock}>
         <h3 className={styles.title}>{work.title}</h3>
