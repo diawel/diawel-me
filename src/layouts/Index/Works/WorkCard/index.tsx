@@ -1,4 +1,4 @@
-import { Work } from '@/utils/microcmsResources'
+import { Work, formatImage } from '@/utils/microcmsResources'
 import * as styles from './index.css'
 import Tag from '@/components/Tag'
 import Paragraph from '@/components/Paragraph'
@@ -12,7 +12,7 @@ const WorkCard: React.FC<WorkCardProps> = ({ work }) => {
     <div className={styles.container}>
       <div className={styles.thumbnailContainer}>
         <img
-          src={work.thumbnail.url}
+          src={formatImage(work.thumbnail.url, { size: 1024 })}
           alt={`「${work.title}」のサムネイル`}
           className={styles.thumbnail}
         />

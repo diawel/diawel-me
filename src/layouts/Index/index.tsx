@@ -1,8 +1,9 @@
-import { Top, Work, client } from '@/utils/microcmsResources'
+import { Top, Work } from '@/utils/microcmsResources'
 import Fv from './Fv'
 import History from './History'
 import StackScrollArea from '@/components/StackScrollArea'
 import { Works } from './Works'
+import { client } from '@/utils/microcmsClient'
 
 const Index: React.FC = async () => {
   const { introductionSubject, introductionText, timeline } =

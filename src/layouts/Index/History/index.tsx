@@ -4,7 +4,7 @@ import Paragraph from '@/components/Paragraph'
 import * as styles from './index.css'
 import AnchorButton from '@/components/AnchorButton'
 import { color } from '@/utils/constants'
-import { LifeEvent, Timeline } from '@/utils/microcmsResources'
+import { LifeEvent, Timeline, formatImage } from '@/utils/microcmsResources'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import WithAbstract from '@/components/WithAbstract'
 import Images, { StrictImage } from '@/components/Images'
@@ -108,6 +108,7 @@ const History: React.FC<HistoryProps> = ({
                           .filter((image) => image.width && image.height)
                           .map((image, index) => ({
                             ...image,
+                            url: formatImage(image.url, { size: 512 }),
                             alt: `「${event.subject}」の画像${index + 1}`,
                           })) as StrictImage[]
                       }

@@ -1,15 +1,4 @@
-import { MicroCMSDate, MicroCMSImage, createClient } from 'microcms-js-sdk'
-
-if (!process.env.MICROCMS_SERVICE_DOMAIN)
-  throw new Error('MICROCMS_SERVICE_DOMAIN is required')
-
-if (!process.env.MICROCMS_API_KEY)
-  throw new Error('MICROCMS_API_KEY is required')
-
-export const client = createClient({
-  serviceDomain: process.env.MICROCMS_SERVICE_DOMAIN,
-  apiKey: process.env.MICROCMS_API_KEY,
-})
+import { MicroCMSDate, MicroCMSImage } from 'microcms-js-sdk'
 
 export type LifeEvent = {
   fieldId: 'lifeEvent'
@@ -55,10 +44,24 @@ export type Work = MicroCMSDate & {
   id: string
   thumbnail: MicroCMSImage
   title: string
-  confidence: number
   dateRange: [YearMonth, YearMonth?]
   description: string
   technology: string
   tags: string[]
   body: (BodyText | BodyImages)[]
+}
+
+export const formatImage = (
+  url: string,
+  options?: { size?: number; format?: 'webp' | 'jpg' | 'png' }
+) => {
+  const urlObject = new URL(url)
+  urlObject.searchParams.set('fm', options?.format ?? 'webp')
+  if (options?.size) {
+    urlObject.searchParams.set('w', options.size.toString())
+    urlObject.searchParams.set('h', options.size.toString())
+    urlObject.searchParams.set('fit', 'clip')
+  }
+
+  return urlObject.toString()
 }
