@@ -34,12 +34,14 @@ const buttonBase = style({
   left: '50%',
   transform: 'translateX(-50%)',
   zIndex: 1,
+  transition: 'opacity 0.3s, filter 0.3s',
   '@media': {
     [`(min-width: ${breakpoint.tablet}px)`]: {
       bottom: 40,
     },
     [`(min-width: ${breakpoint.pc}px)`]: {
       opacity: 1,
+      filter: 'blur(0)',
       pointerEvents: 'auto',
       position: 'static',
       transform: 'none',
@@ -52,6 +54,7 @@ export const button = styleVariants({
     buttonBase,
     {
       opacity: 1,
+      filter: 'blur(0)',
       pointerEvents: 'auto',
     },
   ],
@@ -59,6 +62,7 @@ export const button = styleVariants({
     buttonBase,
     {
       opacity: 0,
+      filter: 'blur(5px)',
       pointerEvents: 'none',
     },
   ],
