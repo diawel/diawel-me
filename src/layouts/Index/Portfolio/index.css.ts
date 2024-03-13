@@ -25,7 +25,7 @@ export const content = style({
   padding: '60px 0',
   '@media': {
     [`(min-width: ${breakpoint.tablet}px)`]: {
-      maxWidth: width.content.pc,
+      maxWidth: 960,
       gap: 24,
       padding: '120px 0',
     },
