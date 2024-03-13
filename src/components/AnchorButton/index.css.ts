@@ -15,6 +15,8 @@ export const container = style({
   boxShadow: `0 2px 0 ${color.shadow}`,
   marginBottom: 2,
   width: 'fit-content',
+  transform: 'translateY(0)',
+  transition: 'transform 0.3s, box-shadow 0.3s',
   '@media': {
     [`(min-width: ${breakpoint.pc}px)`]: {
       height: 44,
@@ -22,9 +24,25 @@ export const container = style({
       fontSize: 16,
       padding: '0 24px',
     },
+    '(hover: hover)': {
+      ':hover': {
+        transform: 'translateY(2px)',
+        boxShadow: `0 0 0 ${color.shadow}`,
+      },
+    },
   },
 })
 
 export const arrow = style({
-  transform: 'rotate(180deg)',
+  transform: 'translateY(0) rotate(180deg)',
+  transition: 'transform 0.3s',
+  '@media': {
+    '(hover: hover)': {
+      selectors: {
+        [`${container}:hover &`]: {
+          transform: 'translateY(4px) rotate(180deg)',
+        },
+      },
+    },
+  },
 })
