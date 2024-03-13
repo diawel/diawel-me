@@ -35,6 +35,8 @@ export const button = styleVariants({
   active: [
     buttonBase,
     {
+      transform: 'translateY(2px)',
+      boxShadow: `0 0 0 ${color.shadow}`,
       backgroundColor: color.text,
       color: color.white,
     },
