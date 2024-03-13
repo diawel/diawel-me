@@ -32,7 +32,7 @@ export const thumbnailOverlay = style({
   left: 0,
   width: '100%',
   height: '100%',
-  borderRadius: 'inherit',
+  borderRadius: 7,
 })
 
 export const descriptionBlock = style({
