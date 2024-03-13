@@ -85,7 +85,7 @@ export const sliderOverlay = style({
   height: '30%',
   justifyContent: 'flex-end',
   alignItems: 'flex-end',
-  gap: 20,
+  gap: 12,
   padding: 20,
   backgroundImage: `linear-gradient(0deg, rgba(0,0,0, 0.3) 0%, rgba(0,0,0,0) 100%)`,
   display: 'none',
