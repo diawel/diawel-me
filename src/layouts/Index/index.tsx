@@ -6,6 +6,7 @@ import { Works } from './Works'
 import { client } from '@/utils/microcmsClient'
 import Portfolio from './Portfolio'
 import * as styles from './index.css'
+import Footer from '@/components/Footer'
 
 const Index: React.FC = async () => {
   const {
@@ -39,6 +40,7 @@ const Index: React.FC = async () => {
       }
     >
       <Portfolio {...{ portfolioImages, portfolioDescription }} />
+      <Footer />
     </StackScrollArea>
   )
 }
