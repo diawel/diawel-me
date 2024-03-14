@@ -3,20 +3,26 @@ import Fv from './Fv'
 import History from './History'
 import StackScrollArea from '@/components/StackScrollArea'
 import { Works } from './Works'
-import { client } from '@/utils/microcmsClient'
 import Portfolio from './Portfolio'
 import * as styles from './index.css'
 import Footer from '@/components/Footer'
+import { MicroCMSListResponse } from 'microcms-js-sdk'
 
-const Index: React.FC = async () => {
+export type IndexProps = {
+  top: Top
+  workList: MicroCMSListResponse<Work>
+}
+
+const Index: React.FC<IndexProps> = ({ top, workList }) => {
   const {
     introductionSubject,
     introductionText,
     timeline,
     portfolioImages,
     portfolioDescription,
-  } = await client.getObject<Top>({ endpoint: 'top' })
-  const { contents } = await client.getList<Work>({ endpoint: 'works' })
+  } = top
+  const { contents } = workList
+
   return (
     <>
       <StackScrollArea
