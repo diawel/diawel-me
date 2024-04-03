@@ -1,12 +1,10 @@
-import Index from '@/layouts/Index'
-import { client } from '@/utils/microcmsClient'
-import { Top, Work } from '@/utils/microcmsResources'
+import { color } from '@/utils/constants'
+import { NextPage, Viewport } from 'next'
 
-const Page = async () => (
-  <Index
-    top={await client.getObject<Top>({ endpoint: 'top' })}
-    workList={await client.getList<Work>({ endpoint: 'works' })}
-  />
-)
+export const viewport: Viewport = {
+  themeColor: color.gray,
+}
+
+const Page: NextPage = async () => null
 
 export default Page

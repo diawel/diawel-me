@@ -25,16 +25,15 @@ const PageLink: React.FC<PageLinkProps> = ({
     href,
   }
 
-  const linkInner = <div className={styles.linkInner}>{children}</div>
   if (newTab)
     return (
       <a target="_blank" rel="noopener noreferrer" {...commonProps}>
-        {linkInner}
+        {children}
       </a>
     )
   return (
     <Link {...commonProps} {...{ to: href }}>
-      {linkInner}
+      {children}
     </Link>
   )
 }

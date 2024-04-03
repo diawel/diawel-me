@@ -8,8 +8,3 @@ export const link = style({
     textDecoration: 'none',
   },
 })
-
-export const linkInner = style({
-  display: 'contents',
-  pointerEvents: 'none',
-})

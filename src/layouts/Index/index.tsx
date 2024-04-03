@@ -24,7 +24,7 @@ const Index: React.FC<IndexProps> = ({ top, workList }) => {
   const { contents } = workList
 
   return (
-    <>
+    <main>
       <StackScrollArea
         stackDirection="down"
         overlay={
@@ -56,7 +56,7 @@ const Index: React.FC<IndexProps> = ({ top, workList }) => {
         <Portfolio {...{ portfolioImages, portfolioDescription }} />
       </StackScrollArea>
       <Footer />
-    </>
+    </main>
   )
 }
 

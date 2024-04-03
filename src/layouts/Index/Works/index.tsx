@@ -6,6 +6,7 @@ import QueryButton from './QueryButton'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import WorkCard from './WorkCard'
 import { blurRiseIn } from '@/utils/commonKeyframes.css'
+import PageLink from '@/components/PageLink'
 
 type SortBy = 'confidence' | 'recent'
 
@@ -174,7 +175,9 @@ export const Works: React.FC<WorksProps> = ({ works }) => {
                 )}s ${index * 0.03}s ease-out backwards`,
               }}
             >
-              <WorkCard work={work} />
+              <PageLink href={`/works/${work.id}`}>
+                <WorkCard work={work} />
+              </PageLink>
             </div>
           ))}
         </div>

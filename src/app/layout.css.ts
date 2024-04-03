@@ -12,4 +12,5 @@ export const body = style({
   overflowX: 'hidden',
   lineHeight: 1.8,
   color: color.text,
+  backgroundColor: color.white,
 })
