@@ -21,6 +21,7 @@ export const titleBlock = style({
 
 export const period = style({
   fontSize: 16,
+  marginBottom: -4,
 })
 
 export const title = style({
