@@ -3,7 +3,6 @@ import { style, styleVariants } from '@vanilla-extract/css'
 
 const frameBase = style({
   position: 'fixed',
-  top: 0,
   left: 0,
   width: '100%',
   height: '100%',
@@ -17,18 +16,18 @@ export const frame = styleVariants({
   open: [
     frameBase,
     {
-      transform: 'translateY(0)',
+      top: 0,
       opacity: 1,
-      transition: 'transform 0.3s ease-out, opacity 0.3s',
+      transition: 'top 0.3s ease-out, opacity 0.3s',
     },
   ],
   close: [
     frameBase,
     {
       pointerEvents: 'none',
-      transform: 'translateY(4px)',
+      top: 4,
       opacity: 0,
-      transition: 'transform 0s ease-out, opacity 0s',
+      transition: 'top 0s ease-out, opacity 0s',
     },
   ],
 })
