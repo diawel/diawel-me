@@ -1,15 +1,15 @@
 import Footer from '@/components/Footer'
 import WithAbstract from '@/components/WithAbstract'
-import { Work, formatImage } from '@/utils/microcmsResources'
+import { StrictImage, Work, formatImage } from '@/utils/microcmsResources'
 import * as styles from './index.css'
 import Tag from '@/components/Tag'
-import Images, { StrictImage } from '@/components/Images'
 import PageLink from '@/components/PageLink'
 import parse, {
   DOMNode,
   HTMLReactParserOptions,
   domToReact,
 } from 'html-react-parser'
+import Images from './Images'
 
 export type WorksProps = {
   work: Work

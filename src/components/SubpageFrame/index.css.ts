@@ -1,7 +1,7 @@
 import { color } from '@/utils/constants'
-import { style } from '@vanilla-extract/css'
+import { style, styleVariants } from '@vanilla-extract/css'
 
-export const frame = style({
+const frameBase = style({
   position: 'fixed',
   top: 0,
   left: 0,
@@ -10,4 +10,24 @@ export const frame = style({
   overflow: 'auto',
   zIndex: 1,
   backgroundColor: color.white,
+})
+
+export const frame = styleVariants({
+  open: [
+    frameBase,
+    {
+      transform: 'translateY(0)',
+      opacity: 1,
+      transition: 'transform 0.3s ease-out, opacity 0.3s',
+    },
+  ],
+  close: [
+    frameBase,
+    {
+      pointerEvents: 'none',
+      transform: 'translateY(4px)',
+      opacity: 0,
+      transition: 'transform 0s ease-out, opacity 0s',
+    },
+  ],
 })

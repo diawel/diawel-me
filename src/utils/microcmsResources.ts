@@ -40,6 +40,12 @@ export type BodyImages = {
   images: MicroCMSImage[]
 }
 
+export type StrictImage = MicroCMSImage & {
+  width: number
+  height: number
+  alt: string
+}
+
 export type Work = MicroCMSDate & {
   id: string
   thumbnail: MicroCMSImage

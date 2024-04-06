@@ -2,10 +2,25 @@ import Works from '@/layouts/Works'
 import { color } from '@/utils/constants'
 import { client } from '@/utils/microcmsClient'
 import { Work } from '@/utils/microcmsResources'
-import { NextPage, Viewport } from 'next'
+import { Metadata, NextPage, Viewport } from 'next'
 
 export const viewport: Viewport = {
   themeColor: color.white,
+}
+
+type Props = {
+  params: {
+    id: string
+  }
+}
+
+export const generateMetadata = async ({ params }: Props) => {
+  return {
+    title: `${
+      (await client.get<Work>({ endpoint: 'works', contentId: params.id }))
+        .title
+    } | Diawel`,
+  }
 }
 
 export const generateStaticParams = async () => {
@@ -16,11 +31,7 @@ export const generateStaticParams = async () => {
   }))
 }
 
-const Page: NextPage<{
-  params: {
-    id: string
-  }
-}> = async ({ params }) => (
+const Page: NextPage<Props> = async ({ params }) => (
   <Works
     work={await client.get<Work>({ endpoint: 'works', contentId: params.id })}
   />

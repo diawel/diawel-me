@@ -1,21 +1,20 @@
 'use client'
 
-import { useEffect } from 'react'
 import * as styles from './index.css'
+import { usePathname } from 'next/navigation'
 
 export type SubpageFrameProps = {
   children: React.ReactNode
 }
 
 const SubpageFrame: React.FC<SubpageFrameProps> = ({ children }) => {
-  useEffect(() => {
-    document.body.style.overflow = 'hidden'
-    return () => {
-      document.body.style.overflow = 'auto'
-    }
-  })
+  const pathname = usePathname()
 
-  return <div className={styles.frame}>{children}</div>
+  return (
+    <div className={pathname !== '/' ? styles.frame.open : styles.frame.close}>
+      {children}
+    </div>
+  )
 }
 
 export default SubpageFrame

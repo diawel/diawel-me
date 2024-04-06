@@ -85,12 +85,10 @@ export const bodyContainer = style({
   display: 'flex',
   flexDirection: 'column',
   gap: 28,
-  padding: '40px 0',
+  paddingBottom: 60,
   '@media': {
-    [`(min-width: ${breakpoint.tablet}px)`]: {
-      padding: '60px 0',
-    },
     [`(min-width: ${breakpoint.pc}px)`]: {
+      padding: '60px 0',
       gap: 36,
     },
   },
@@ -107,6 +105,8 @@ export const thumbnail = style({
     [`(min-width: ${breakpoint.pc}px)`]: {
       width: '100%',
       marginLeft: 0,
+      border: `1px solid ${color.text}`,
+      borderRadius: 12,
     },
   },
 })

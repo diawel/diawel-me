@@ -3,6 +3,8 @@ import * as styles from './layout.css'
 import Index from '@/layouts/Index'
 import { client } from '@/utils/microcmsClient'
 import { Top, Work } from '@/utils/microcmsResources'
+import SubpageFrame from '@/components/SubpageFrame'
+import IndexFrame from '@/components/IndexFrame'
 
 export const metadata: Metadata = {
   title: 'Diawel',
@@ -28,11 +30,13 @@ const Layout = async ({ children }: { children: React.ReactNode }) => {
         />
       </head>
       <body className={styles.body}>
-        <Index
-          top={await client.getObject<Top>({ endpoint: 'top' })}
-          workList={await client.getList<Work>({ endpoint: 'works' })}
-        />
-        {children}
+        <IndexFrame>
+          <Index
+            top={await client.getObject<Top>({ endpoint: 'top' })}
+            workList={await client.getList<Work>({ endpoint: 'works' })}
+          />
+        </IndexFrame>
+        <SubpageFrame>{children}</SubpageFrame>
       </body>
     </html>
   )

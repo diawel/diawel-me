@@ -4,10 +4,15 @@ import Paragraph from '@/components/Paragraph'
 import * as styles from './index.css'
 import AnchorButton from '@/components/AnchorButton'
 import { color } from '@/utils/constants'
-import { LifeEvent, Timeline, formatImage } from '@/utils/microcmsResources'
+import {
+  LifeEvent,
+  StrictImage,
+  Timeline,
+  formatImage,
+} from '@/utils/microcmsResources'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import WithAbstract from '@/components/WithAbstract'
-import Images, { StrictImage } from '@/components/Images'
+import Images from '@/layouts/Index/History/Images'
 
 export type HistoryProps = {
   introductionSubject: string

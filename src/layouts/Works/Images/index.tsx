@@ -1,11 +1,5 @@
-import { MicroCMSImage } from 'microcms-js-sdk'
 import * as styles from './index.css'
-
-export type StrictImage = MicroCMSImage & {
-  width: number
-  height: number
-  alt: string
-}
+import { StrictImage } from '@/utils/microcmsResources'
 
 export type ImagesProps = {
   images: StrictImage[]
@@ -26,7 +20,7 @@ const Images: React.FC<ImagesProps> = ({ images }) => {
           aspectRatio: imagesRatio,
         }}
       >
-        {images.map((image, index) => (
+        {images.map((image) => (
           <img
             key={image.url}
             src={image.url}

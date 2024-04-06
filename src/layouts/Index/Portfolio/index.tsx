@@ -19,14 +19,14 @@ export const Portfolio: React.FC<PortfolioProps> = ({
 
   const slideBackward = () => {
     sliderRef.current?.scrollBy({
-      left: -sliderRef.current.clientWidth,
+      left: -sliderRef.current.clientWidth - 8,
       behavior: 'smooth',
     })
   }
 
   const slideForward = () => {
     sliderRef.current?.scrollBy({
-      left: sliderRef.current.clientWidth,
+      left: sliderRef.current.clientWidth + 8,
       behavior: 'smooth',
     })
   }
