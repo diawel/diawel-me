@@ -1,5 +1,5 @@
 import { breakpoint, color, width } from '@/utils/constants'
-import { style } from '@vanilla-extract/css'
+import { globalStyle, style } from '@vanilla-extract/css'
 
 export const abstractContainer = style({
   width: '100%',
@@ -115,7 +115,41 @@ export const body = style({
   width: '100%',
   display: 'flex',
   flexDirection: 'column',
-  gap: 8,
+  gap: 24,
 })
 
-export const bodyText = style({})
+export const bodyText = style({
+  margin: '12px 0',
+})
+
+globalStyle(`${bodyText} :is(p, ul, ol, blockquote)`, {
+  margin: '12px 0',
+})
+
+globalStyle(`${bodyText} h2`, {
+  margin: '32px 0 16px',
+  fontSize: 24,
+})
+
+globalStyle(`${bodyText} blockquote`, {
+  padding: '0 16px',
+  borderLeft: `4px solid ${color.gray}`,
+  color: color.text,
+})
+
+globalStyle(`${bodyText} ul > li`, {
+  marginLeft: '1.25em',
+  paddingLeft: '0.25em',
+})
+
+globalStyle(`${bodyText} ol > li`, {
+  marginLeft: '1.5em',
+})
+
+globalStyle(`${bodyText} > :first-child`, {
+  marginTop: 0,
+})
+
+globalStyle(`${bodyText} > :last-child`, {
+  marginBottom: 0,
+})
