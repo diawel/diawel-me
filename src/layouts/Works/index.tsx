@@ -32,6 +32,13 @@ const parserOptions: HTMLReactParserOptions = {
 }
 
 const Works: React.FC<WorksProps> = ({ work }) => {
+  const period = work.dateRange[1]
+    ? work.dateRange[0].year === work.dateRange[1].year &&
+      work.dateRange[0].month === work.dateRange[1].month
+      ? `${work.dateRange[0].year}.${work.dateRange[0].month}`
+      : `${work.dateRange[0].year}.${work.dateRange[0].month} - ${work.dateRange[1].year}.${work.dateRange[1].month}`
+    : `${work.dateRange[0].year}.${work.dateRange[0].month} - 現在`
+
   return (
     <>
       <section>
@@ -40,7 +47,7 @@ const Works: React.FC<WorksProps> = ({ work }) => {
             <div className={styles.abstractContainer}>
               <div className={styles.abstract}>
                 <div className={styles.titleBlock}>
-                  <div className={styles.period}></div>
+                  <div className={styles.period}>{period}</div>
                   <h1 className={styles.title}>{work.title}</h1>
                 </div>
                 <div className={styles.descriptionBox}>
