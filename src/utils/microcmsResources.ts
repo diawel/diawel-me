@@ -40,6 +40,12 @@ export type BodyImages = {
   images: MicroCMSImage[]
 }
 
+export type Youtube = {
+  fieldId: 'youtube'
+  videoId: string
+  aspectRatio?: string
+}
+
 export type StrictImage = MicroCMSImage & {
   width: number
   height: number
@@ -54,7 +60,7 @@ export type Work = MicroCMSDate & {
   description: string
   technology: string
   tags: string[]
-  body: (BodyText | BodyImages)[]
+  body: (BodyText | BodyImages | Youtube)[]
 }
 
 export const formatImage = (

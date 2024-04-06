@@ -74,6 +74,12 @@ const Works: React.FC<WorksProps> = ({ work }) => {
             />
             <div className={styles.body}>
               {work.body.map((block, index) => {
+                if (block.fieldId === 'bodyText')
+                  return (
+                    <div key={index} className={styles.bodyText}>
+                      {parse(block.html, parserOptions)}
+                    </div>
+                  )
                 if (block.fieldId === 'bodyImages')
                   return (
                     <Images
@@ -89,11 +95,20 @@ const Works: React.FC<WorksProps> = ({ work }) => {
                       }
                     />
                   )
-                return (
-                  <div key={index} className={styles.bodyText}>
-                    {parse(block.html, parserOptions)}
-                  </div>
-                )
+                if (block.fieldId === 'youtube')
+                  return (
+                    <iframe
+                      key={index}
+                      className={styles.iframe}
+                      src={`https://www.youtube.com/embed/${block.videoId}`}
+                      title="YouTube video player"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      style={{
+                        aspectRatio: block.aspectRatio ?? '16 / 9',
+                      }}
+                      allowFullScreen
+                    />
+                  )
               })}
             </div>
           </main>

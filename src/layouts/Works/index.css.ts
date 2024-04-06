@@ -122,6 +122,11 @@ export const bodyText = style({
   margin: '12px 0',
 })
 
+export const iframe = style({
+  width: '100%',
+  border: 'none',
+})
+
 globalStyle(`${bodyText} :is(p, ul, ol, blockquote)`, {
   margin: '12px 0',
 })
