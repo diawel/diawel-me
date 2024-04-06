@@ -8,6 +8,7 @@ const frameBase = style({
   width: '100%',
   height: '100%',
   overflow: 'auto',
+  overscrollBehavior: 'contain',
   zIndex: 1,
   backgroundColor: color.white,
 })
