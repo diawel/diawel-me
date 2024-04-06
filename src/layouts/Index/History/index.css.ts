@@ -62,7 +62,7 @@ export const button = styleVariants({
     buttonBase,
     {
       opacity: 0,
-      filter: 'blur(5px)',
+      filter: 'blur(2px)',
       pointerEvents: 'none',
     },
   ],

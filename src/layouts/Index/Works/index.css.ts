@@ -1,5 +1,18 @@
 import { breakpoint, color, width } from '@/utils/constants'
-import { style, styleVariants } from '@vanilla-extract/css'
+import { keyframes, style, styleVariants } from '@vanilla-extract/css'
+
+export const riseIn = keyframes({
+  from: {
+    filter: 'blur(2px)',
+    transform: 'translateY(4px)',
+    opacity: 0,
+  },
+  to: {
+    filter: 'blur(0)',
+    transform: 'translateY(0)',
+    opacity: 1,
+  },
+})
 
 export const container = style({
   display: 'flex',
@@ -94,7 +107,7 @@ export const queryHeader = styleVariants({
     queryHeaderBase,
     {
       opacity: 0,
-      filter: 'blur(5px)',
+      filter: 'blur(2px)',
       pointerEvents: 'none',
     },
   ],

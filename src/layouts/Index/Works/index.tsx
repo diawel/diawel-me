@@ -5,7 +5,6 @@ import * as styles from './index.css'
 import QueryButton from './QueryButton'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import WorkCard from './WorkCard'
-import { blurRiseIn } from '@/utils/commonKeyframes.css'
 import PageLink from '@/components/PageLink'
 
 type SortBy = 'confidence' | 'recent'
@@ -169,7 +168,7 @@ export const Works: React.FC<WorksProps> = ({ works }) => {
             <div
               key={[work.id, sortBy, ...filter].join(',')}
               style={{
-                animation: `${blurRiseIn} ${Math.min(
+                animation: `${styles.riseIn} ${Math.min(
                   (filteredWorks.length - index) * 0.03 + 0.3,
                   0.6
                 )}s ${index * 0.03}s ease-out backwards`,

@@ -1,6 +1,5 @@
 import * as styles from './index.css'
 import AnchorButton from '@/components/AnchorButton'
-import { blurIn } from '@/utils/commonKeyframes.css'
 
 const Fv: React.FC = () => {
   return (
@@ -28,21 +27,9 @@ const Fv: React.FC = () => {
             </div>
           </div>
           <div className={styles.anchorContainer}>
-            <div
-              style={{ animation: `${blurIn} 1.5s 0.5s ease-out backwards` }}
-            >
-              <AnchorButton to="history" text="経歴" />
-            </div>
-            <div
-              style={{ animation: `${blurIn} 1.4s 0.6s ease-out backwards` }}
-            >
-              <AnchorButton to="works" text="作品一覧" />
-            </div>
-            <div
-              style={{ animation: `${blurIn} 1.3s 0.7s ease-out backwards` }}
-            >
-              <AnchorButton to="portfolio" text="ポートフォリオ" />
-            </div>
+            <AnchorButton to="history" text="経歴" />
+            <AnchorButton to="works" text="作品一覧" />
+            <AnchorButton to="portfolio" text="ポートフォリオ" />
           </div>
         </div>
         <div className={styles.secondary}>

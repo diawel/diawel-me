@@ -1,16 +1,15 @@
-import { blurIn } from '@/utils/commonKeyframes.css'
 import { breakpoint, color, width } from '@/utils/constants'
 import { keyframes, style } from '@vanilla-extract/css'
 
-const blurSlideIn = keyframes({
+const riseIn = keyframes({
   from: {
-    filter: 'blur(10px)',
-    transform: 'translateX(4px)',
+    transform: 'translateY(24px)',
+    filter: 'blur(2px)',
     opacity: 0,
   },
   to: {
+    transform: 'translateY(0)',
     filter: 'blur(0)',
-    transform: 'translateX(0)',
     opacity: 1,
   },
 })
@@ -20,6 +19,7 @@ export const container = style({
   justifyContent: 'center',
   backgroundColor: color.gray,
   padding: `0 ${width.siderail.mobile}px`,
+  overflow: 'hidden',
   '@media': {
     [`(min-width: ${breakpoint.tablet}px)`]: {
       padding: `0 ${width.siderail.tablet}px`,
@@ -51,6 +51,7 @@ export const primary = style({
   display: 'flex',
   flexDirection: 'column',
   gap: 24,
+  animation: `${riseIn} 0.6s cubic-bezier(0, .6, .4, 1)`,
   '@media': {
     [`(min-width: ${breakpoint.tablet}px)`]: {
       gap: 40,
@@ -77,7 +78,6 @@ export const title = style({
 export const label = style({
   fontSize: 16,
   fontWeight: 'bold',
-  animation: `${blurIn} 1.2s 0.3s ease-out backwards`,
   '@media': {
     [`(min-width: ${breakpoint.pc}px)`]: {
       fontSize: 18,
@@ -87,7 +87,6 @@ export const label = style({
 
 export const name = style({
   height: 36,
-  animation: `${blurIn} 1.5s ease-out backwards`,
   '@media': {
     [`(min-width: ${breakpoint.pc}px)`]: {
       height: 52,
@@ -98,7 +97,6 @@ export const name = style({
 export const affiliation = style({
   fontSize: 16,
   fontWeight: 'bold',
-  animation: `${blurIn} 1.1s 0.4s ease-out backwards`,
   '@media': {
     [`(min-width: ${breakpoint.pc}px)`]: {
       fontSize: 18,
@@ -122,7 +120,7 @@ export const secondary = style({
   position: 'relative',
   minWidth: '30%',
   flexShrink: 0,
-  animation: `${blurSlideIn} 1.2s 0.3s ease-out backwards`,
+  animation: `${riseIn} 0.5s 0.1s cubic-bezier(0, .6, .4, 1) backwards`,
   '::before': {
     content: '',
     display: 'block',

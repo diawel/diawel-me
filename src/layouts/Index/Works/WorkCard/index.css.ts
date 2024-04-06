@@ -6,7 +6,6 @@ export const container = style({
   display: 'flex',
   flexDirection: 'column',
   gap: 16,
-  cursor: 'pointer',
 })
 
 export const thumbnailContainer = style({
@@ -25,7 +24,7 @@ export const thumbnail = style({
   height: 'calc(100% + 4px)',
   objectFit: 'cover',
   transform: 'translateY(0)',
-  transition: 'transform 0.3s',
+  transition: 'transform 0.3s cubic-bezier(0, .6, .4, 1)',
   '@media': {
     '(hover: hover)': {
       selectors: {
@@ -69,7 +68,7 @@ export const thumbnailOverlayInner = style({
   alignItems: 'flex-end',
   backgroundImage: `linear-gradient(0deg, rgba(0 0 0 / 0.3) 0%, rgba(0 0 0 / 0) 100%)`,
   opacity: 0,
-  filter: 'blur(5px)',
+  filter: 'blur(2px)',
   transition: 'opacity 0.3s, filter 0.3s',
   '@media': {
     '(hover: hover)': {
