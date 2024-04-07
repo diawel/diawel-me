@@ -7,7 +7,6 @@ const frameBase = style({
   width: '100%',
   height: '100%',
   overflow: 'auto',
-  overscrollBehavior: 'contain',
   zIndex: 1,
   backgroundColor: color.white,
 })
@@ -18,7 +17,7 @@ export const frame = styleVariants({
     {
       top: 0,
       opacity: 1,
-      transition: 'top 0.3s ease-out, opacity 0.3s',
+      transition: 'top 0.3s ease-out, opacity 0.3s ease-out',
     },
   ],
   close: [
@@ -27,7 +26,7 @@ export const frame = styleVariants({
       pointerEvents: 'none',
       top: 4,
       opacity: 0,
-      transition: 'top 0s ease-out, opacity 0s',
+      transition: 'top 0s, opacity 0s',
     },
   ],
 })
