@@ -18,7 +18,7 @@ export const container = style({
 })
 
 export const images = style({
-  minHeight: 100,
+  minHeight: 150,
   display: 'flex',
   padding: `0 max(calc((100vw - ${width.content.mobile}px) / 2), ${width.siderail.mobile}px)`,
   boxSizing: 'content-box',
