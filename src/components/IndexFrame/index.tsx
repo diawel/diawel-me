@@ -11,7 +11,10 @@ const IndexFrame: React.FC<IndexFrameProps> = ({ children }) => {
   const pathname = usePathname()
 
   return (
-    <div className={pathname === '/' ? styles.frame.open : styles.frame.close}>
+    <div
+      className={pathname === '/' ? styles.frame.open : styles.frame.close}
+      aria-hidden={pathname !== '/'}
+    >
       {children}
     </div>
   )

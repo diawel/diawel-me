@@ -17,7 +17,7 @@ const SubpageFrame: React.FC<SubpageFrameProps> = ({ children }) => {
     return () => {
       document.body.style.overflow = 'auto'
     }
-  })
+  }, [pathname])
 
   return (
     <div className={pathname !== '/' ? styles.frame.open : styles.frame.close}>
