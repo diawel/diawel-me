@@ -6,7 +6,7 @@ const frameBase = style({
   left: 0,
   width: '100%',
   height: '100%',
-  overflow: 'auto',
+  overflowX: 'hidden',
   zIndex: 1,
   backgroundColor: color.white,
 })
