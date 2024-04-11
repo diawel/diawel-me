@@ -1,5 +1,5 @@
 import { color } from '@/utils/constants'
-import { style, styleVariants } from '@vanilla-extract/css'
+import { globalStyle, style, styleVariants } from '@vanilla-extract/css'
 
 const frameBase = style({
   position: 'fixed',
@@ -12,23 +12,28 @@ const frameBase = style({
 })
 
 export const frame = styleVariants({
-  open: [
+  active: [
     frameBase,
     {
       top: 0,
       opacity: 1,
       filter: 'blur(0)',
-      transition: 'top 0.3s ease-out, opacity 0.3s ease-out',
+      transition:
+        'top 0.3s cubic-bezier(0, .6, .4, 1), opacity 0.3s cubic-bezier(0, .6, .4, 1), filter 0.3s cubic-bezier(0, .6, .4, 1)',
     },
   ],
-  close: [
+  inactive: [
     frameBase,
     {
       pointerEvents: 'none',
-      top: 4,
+      top: 6,
       opacity: 0,
       filter: 'blur(2px)',
       transition: 'top 0s, opacity 0s',
     },
   ],
+})
+
+globalStyle(`body:has(${frame.active})`, {
+  overflow: 'hidden',
 })

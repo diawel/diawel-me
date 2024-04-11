@@ -1,12 +1,12 @@
 import { styleVariants } from '@vanilla-extract/css'
 
 export const frame = styleVariants({
-  open: {
+  active: {
     opacity: 1,
     transition: 'opacity 0.3s',
   },
 
-  close: {
+  inactive: {
     opacity: 0.3,
     transition: 'opacity 0s',
   },
