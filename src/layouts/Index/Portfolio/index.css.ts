@@ -74,6 +74,7 @@ export const image = style({
   flexShrink: 0,
   width: 'auto',
   height: '100%',
+  aspectRatio: '16 / 9',
   objectFit: 'cover',
   scrollSnapAlign: 'center',
 })
