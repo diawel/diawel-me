@@ -17,9 +17,8 @@ export const frame = styleVariants({
     {
       top: 0,
       opacity: 1,
-      filter: 'blur(0)',
       transition:
-        'top 0.3s cubic-bezier(0, .6, .4, 1), opacity 0.3s cubic-bezier(0, .6, .4, 1), filter 0.3s cubic-bezier(0, .6, .4, 1)',
+        'top 0.3s cubic-bezier(0, .6, .4, 1), opacity 0.3s cubic-bezier(0, .6, .4, 1)',
     },
   ],
   inactive: [
@@ -28,7 +27,6 @@ export const frame = styleVariants({
       pointerEvents: 'none',
       top: 6,
       opacity: 0,
-      filter: 'blur(2px)',
       transition: 'top 0s, opacity 0s',
     },
   ],
