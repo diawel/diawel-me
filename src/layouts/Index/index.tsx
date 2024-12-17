@@ -15,6 +15,7 @@ export type IndexProps = {
 
 const Index: React.FC<IndexProps> = ({ top, workList }) => {
   const {
+    love,
     introductionSubject,
     introductionText,
     timeline,
@@ -40,7 +41,11 @@ const Index: React.FC<IndexProps> = ({ top, workList }) => {
             avoidSafariStickyBug
           >
             <div className={styles.upperContainer}>
-              <Fv />
+              <Fv
+                {...{
+                  love,
+                }}
+              />
               <div id="history" />
               <History
                 {...{

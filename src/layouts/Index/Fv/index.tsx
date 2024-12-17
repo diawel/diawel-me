@@ -1,7 +1,11 @@
 import * as styles from './index.css'
 import AnchorButton from '@/components/AnchorButton'
 
-const Fv: React.FC = () => {
+export type FvProps = {
+  love: string
+}
+
+const Fv: React.FC<FvProps> = ({ love }) => {
   return (
     <section className={styles.container}>
       <div className={styles.content}>
@@ -36,18 +40,7 @@ const Fv: React.FC = () => {
           <div className={styles.technologiesBlock}>
             <div className={styles.technologiesLabel}>Love</div>
             <div className={styles.technologies}>
-              {[
-                'React',
-                'JavaScript',
-                'TypeScript',
-                'Next.js',
-                'Vite',
-                'HTML',
-                'CSS',
-                'MicroCMS',
-                'Figma',
-                'DaVinci Resolve',
-              ].map((technology) => (
+              {love.split('\n').map((technology) => (
                 <span key={technology}>{technology}</span>
               ))}
             </div>
