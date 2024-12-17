@@ -119,6 +119,7 @@ export const anchorContainer = style({
 export const secondary = style({
   position: 'relative',
   minWidth: '30%',
+  minHeight: '100%',
   flexShrink: 0,
   animation: `${riseIn} 0.5s 0.1s cubic-bezier(0, .6, .4, 1) backwards`,
   '::before': {
