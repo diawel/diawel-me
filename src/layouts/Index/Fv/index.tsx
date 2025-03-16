@@ -33,7 +33,6 @@ const Fv: React.FC<FvProps> = ({ love }) => {
           <div className={styles.anchorContainer}>
             <AnchorButton to="history" text="経歴" />
             <AnchorButton to="works" text="作品一覧" />
-            <AnchorButton to="portfolio" text="ポートフォリオ" />
           </div>
         </div>
         <div className={styles.secondary}>

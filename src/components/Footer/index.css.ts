@@ -5,13 +5,15 @@ export const container = style({
   display: 'flex',
   justifyContent: 'center',
   backgroundColor: color.text,
-  padding: `0 ${width.siderail.mobile}px`,
+  padding: `40px ${width.siderail.mobile}px`,
+  marginTop: -40,
   '@media': {
     [`(min-width: ${breakpoint.tablet}px)`]: {
       padding: `0 ${width.siderail.tablet}px`,
     },
     [`(min-width: ${breakpoint.pc}px)`]: {
-      padding: `0 ${width.siderail.pc}px`,
+      padding: `50px ${width.siderail.pc}px 0`,
+      marginTop: -50,
     },
   },
 })

@@ -58,9 +58,8 @@ const Index: React.FC<IndexProps> = ({ top, workList }) => {
           </StackScrollArea>
         }
       >
-        <Portfolio {...{ portfolioImages, portfolioDescription }} />
+        <Footer />
       </StackScrollArea>
-      <Footer />
     </>
   )
 }
