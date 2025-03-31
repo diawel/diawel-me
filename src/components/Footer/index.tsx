@@ -1,9 +1,13 @@
 import PageLink from '../PageLink'
 import * as styles from './index.css'
 
-const Footer: React.FC = () => {
+type FooterProps = {
+  expanded?: boolean
+}
+
+const Footer: React.FC<FooterProps> = ({ expanded = false }) => {
   return (
-    <footer className={styles.container}>
+    <footer className={styles.container[expanded ? 'expanded' : 'default']}>
       <div className={styles.content}>
         <img
           src="/assets/logo-light.svg"

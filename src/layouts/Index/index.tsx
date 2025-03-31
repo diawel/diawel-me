@@ -58,7 +58,7 @@ const Index: React.FC<IndexProps> = ({ top, workList }) => {
           </StackScrollArea>
         }
       >
-        <Footer />
+        <Footer expanded={true} />
       </StackScrollArea>
     </>
   )

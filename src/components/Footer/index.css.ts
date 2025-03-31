@@ -1,21 +1,36 @@
 import { breakpoint, color, width } from '@/utils/constants'
-import { style } from '@vanilla-extract/css'
+import { style, styleVariants } from '@vanilla-extract/css'
 
-export const container = style({
+const containerBase = {
   display: 'flex',
   justifyContent: 'center',
   backgroundColor: color.text,
-  padding: `40px ${width.siderail.mobile}px`,
-  marginTop: -40,
+  paddingInline: width.siderail.mobile,
   '@media': {
     [`(min-width: ${breakpoint.tablet}px)`]: {
-      padding: `0 ${width.siderail.tablet}px`,
+      paddingInline: width.siderail.tablet,
     },
     [`(min-width: ${breakpoint.pc}px)`]: {
-      padding: `50px ${width.siderail.pc}px 0`,
-      marginTop: -50,
+      paddingInline: width.siderail.pc,
     },
   },
+}
+
+export const container = styleVariants({
+  default: [containerBase],
+  expanded: [
+    containerBase,
+    {
+      marginTop: -40,
+      paddingTop: 40,
+      '@media': {
+        [`(min-width: ${breakpoint.pc}px)`]: {
+          marginTop: -50,
+          paddingTop: 50,
+        },
+      },
+    },
+  ],
 })
 
 export const content = style({
