@@ -2,23 +2,27 @@ import Works from '@/layouts/Works'
 import { color } from '@/utils/constants'
 import { client } from '@/utils/microcmsClient'
 import { Work } from '@/utils/microcmsResources'
-import { Metadata, NextPage, Viewport } from 'next'
+import { Viewport } from 'next'
 
 export const viewport: Viewport = {
   themeColor: color.white,
 }
 
 type Props = {
-  params: {
+  params: Promise<{
     id: string
-  }
+  }>
 }
 
 export const generateMetadata = async ({ params }: Props) => {
   return {
     title: `${
-      (await client.get<Work>({ endpoint: 'works', contentId: params.id }))
-        .title
+      (
+        await client.get<Work>({
+          endpoint: 'works',
+          contentId: (await params).id,
+        })
+      ).title
     } | Diawel`,
   }
 }
@@ -31,9 +35,12 @@ export const generateStaticParams = async () => {
   }))
 }
 
-const Page: NextPage<Props> = async ({ params }) => (
+const Page = async ({ params }: Props) => (
   <Works
-    work={await client.get<Work>({ endpoint: 'works', contentId: params.id })}
+    work={await client.get<Work>({
+      endpoint: 'works',
+      contentId: (await params).id,
+    })}
   />
 )
 
