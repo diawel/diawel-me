@@ -13,7 +13,7 @@ const IndexFrame: React.FC<IndexFrameProps> = ({ children }) => {
   return (
     <div
       className={pathname === '/' ? styles.frame.active : styles.frame.inactive}
-      aria-hidden={pathname !== '/'}
+      inert={pathname !== '/'}
     >
       {children}
     </div>
